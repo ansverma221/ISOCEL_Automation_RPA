@@ -43,6 +43,7 @@
       {
         "editingStatus": "InProgress",
         "testCaseId": "19da515a-8356-4b61-aec3-6f6dcc291063",
+        "dataVariationFilePath": ".variations\\TH02_010_Create_dossier_d'offre.json",
         "fileName": "TestCase\\THo2_010_Create_dossier_d'offre_permanent.xaml"
       }
     ],

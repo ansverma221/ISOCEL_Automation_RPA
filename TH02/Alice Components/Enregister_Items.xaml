@@ -4,6 +4,7 @@
     <x:Property Name="in_ActiviteExploitation" Type="InArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_CreationTenderLog" Type="OutArgument(x:String)" />
+    <x:Property Name="in_RowIndex" Type="InArgument(x:String)" />
   </x:Members>
   <this:Enregister_Items.in_Config>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
@@ -11,10 +12,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1306.4,3303.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1306.4,3794.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="37">
+    <scg:List x:TypeArguments="x:String" Capacity="74">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -52,6 +53,7 @@
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -89,10 +91,11 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow &quot;Click on ‘Creer un dossier d’offre’ at the bottom extreme right corner.&#xA;&#xA;In the window ‘Création d'un dossier d'offre permanent’, fill the below data picked from &quot;&#xA;" DisplayName="Enregister Items" sap:VirtualizedContainerService.HintSize="1316.8,3238.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow &quot;Click on ‘Creer un dossier d’offre’ at the bottom extreme right corner.&#xA;&#xA;In the window ‘Création d'un dossier d'offre permanent’, fill the below data picked from &quot;&#xA;" DisplayName="Enregister Items" sap:VirtualizedContainerService.HintSize="1316.8,3729.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Enregister Items" Name="IsocelF_WorkFlowName" />
       <Variable x:TypeArguments="x:Boolean" Name="v_BoolExists" />
+      <Variable x:TypeArguments="x:String" Name="v_Code" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -116,48 +119,78 @@
       </ui:AddLogFields>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[IsocelF_WorkFlowName+&quot; : Start&quot;]" />
     </Sequence>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1275.2,2960.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1275.2,3452" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Nvigate to menu" sap:VirtualizedContainerService.HintSize="1238.4,2729.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence DisplayName="Nvigate to menu" sap:VirtualizedContainerService.HintSize="1238.4,3220.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Alicecom-scaso" sap:VirtualizedContainerService.HintSize="1196.8,2636.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InUiElement="[io_Browser]" InteractionMode="DebuggerApi" OpenMode="Never" OutUiElement="[io_Browser]" ScopeGuid="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Alicecom-scaso" sap:VirtualizedContainerService.HintSize="1196.8,3128" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InUiElement="[io_Browser]" InteractionMode="DebuggerApi" OpenMode="Never" OutUiElement="[io_Browser]" ScopeGuid="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence sap:VirtualizedContainerService.HintSize="1163.2,2500" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence sap:VirtualizedContainerService.HintSize="1163.2,2991.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1121.6,2405.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1121.6,2896.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NCheckState DisplayName="Check App State 'Accueil'" Exists="[v_BoolExists]" sap:VirtualizedContainerService.HintSize="1080,2311.2" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Timeout="[Convert.ToInt32(in_Config(&quot;TH02_Medium_Timeout&quot;))]" Version="V1">
+                    <uix:NCheckState DisplayName="Check App State 'Accueil'" Exists="[v_BoolExists]" sap:VirtualizedContainerService.HintSize="1080,2802.4" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Timeout="[Convert.ToInt32(in_Config(&quot;TH02_Medium_Timeout&quot;))]" Version="V1">
                       <uix:NCheckState.IfExists>
-                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="513.6,2092.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="513.6,2584" sap2010:WorkflowViewState.IdRef="Sequence_25">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="472,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[v_Code]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
                           <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'Créer undossier d'offre '" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1747, 964, 181, 75" ElementType="Button" FriendlyName="'Créer undossier d'offre'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='   Créer undossier d&amp;apos;offre ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2171' tag='BUTTON' type='button' aaname='   Créer undossier d&amp;apos;offre ' check:text='Créer undossier d&amp;apos;offre' /&gt;" Guid="a3d285d3-064e-48c9-ae90-103a85299c67" ImageBase64="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" InformativeScreenshot="60a465696b567e9f9b2a99e4f6a1acb2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image" />
                             </uix:NClick.Target>
                           </uix:NClick>
+                          <uix:NGetText DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Get Text 'Code *'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1235, 303, 159, 40" ElementType="InputBox" FriendlyName="'41'" FullSelectorArgument="&lt;webctrl id='ember2229-input-text' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2229-input-text' tag='INPUT' type='text' aaname='' /&gt;" Guid="51228e64-e6cf-4b7a-838c-584003bc41c9" InformativeScreenshot="ce040f09d0b702824f3af74374e5f6d5.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM*' /&gt;" SearchSteps="FuzzySelector">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target DesignTimeRectangle="1235, 266, 188, 37" ElementType="Text" FriendlyName="'Code *'" FullSelectorArgument="&lt;webctrl parentid='creation-dossier-offre' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='creation-dossier-offre' tag='LABEL' type='' aaname='Code *' check:text='Code *' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMAAAAApCAYAAABjlyZNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHzSURBVHhe7dmxccIwGIbhLMAu2SMdO1CzA/QegZaKBajScFSpckcFE6TIMYFi/7JBthUkn02KfG/xFMQYu/hfyYSXr++rA1QRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKQRAKTlB3DZufnrm5sFVofI+wY6bZdutti5U+RYNru3wu1jx4AHsgLYr6uBX7rNJfh7HcR8e269d6hxARzdyu5h51aLolTe59iYICUdwKHoD3/OsUxT7AD2GSPvA5qSAdjqvz5Gj8X43aLRH0o/rM3xwm16AZzdplrJg/c8frSpdoHyOtsyRlZ/DJQIwA9j3mNOPbjBEPZW5u6OYa/Dc5pHmvv1/Gc8iKD6DAu0uj67AIbJCiDry659J+gOYBhQPCbbMZoAqmHureLx84ApTLcD2GreX6ltBbcV2q/u3ZjseD307cejNgLAM4z8DhDsEL8EcD8/HUBrNwD+QDKA+KNNzYa+PjbBI1DyeR+YWDqAkg1pd7h7vwP4AQ9XcD/QwXlhMLfX4Tl+l2jtOPV1pvjRDejKCsA0wxqIDaWPpdHdEUqtz4n9G7SOIMDw41nyAwD+IQKANAKANAKANAKANAKANAKANAKANAKANAKANAKANAKANAKAtFsA7x+fgAw/91f3A33mPeo2PusLAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[v_Code]</OutArgument>
+                            </uix:NGetText.Text>
+                          </uix:NGetText>
                           <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Type Into 'Libellé *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="472,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Text="[&quot;TNR_&quot;+Now.Date.ToString(&quot;yyyyMMdd&quot;)]" Version="V1">
                             <uix:NTypeInto.Target>
                               <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1468, 343, 416, 40" ElementType="InputBox" FriendlyName="'INPUT ember2240'" FullSelectorArgument="&lt;webctrl id='ember2240' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2240' tag='INPUT' type='text' aaname='' /&gt;" Guid="959a3059-9501-480a-b73f-98ef9ab97e0e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAaQAAAAsCAYAAAAq2Mw0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJDSURBVHhe7dpdThsxAIXRWUF32uV1L6SiKH/DZJKmXYLr66BWCKQ8gFw/nCNdiQzw/MkTT6fr77JcfpX5ci3z+Wc5rNml7E91y6XslvOb7U9mZmb396odtSlpSxqT1qQ5aU8alBZNLUbna/uD/MP2eS1Pc3YqP47Lu8vvzMzM7u39fqytNWlO2pMGpUVTi1Et1m65RejxsJTv+7lsdnN52B3LZnssD9vD69XnZmZmd/fSjdaS+jltSWPSmjQn7UmD0qLpdjJay5ev38zMzLqvRam2aMqRKZXKQwDoKe25nZTOZcp7vBydBAmA3tKeNCgtmvLlUt7nCRIAvaU9aVBaVIN0al8yCRIAvaU9aVBaNOUaXm4+CBIAvaU9aVBa1IKU63iCBEBv7YRUG/Q3SLkjLkgA9NZOSLVBggTAfyVIAAxBkAAYwoeCJFwAfBZBAmAIggTAEAQJgCEIEgBDECQAhiBIAAxBkAAYgiABMARBAmAIggTAEAQJgCEIEgBDECQAhiBIAAxBkAAYgiABMIQPBQkAPosgATAEQQJgCIIEwBAECYAhvAnSZnsUJAC6S3vSoH8npJ0gAdBfOyHVBrUgPc2nstnNggRAd+2EVBuUFtUgreX7XpAA6C/tSYPSomn7vJbHwyJIAHSX9qRBadG0W87tqCRIAPSW9qRBadF0WC/1h7U9NDMz6700KC2a5vO1HE63KKVSOTrlfV6+ZMrNh1zHyx3xV6vPzczM7u6lG60l9XPaksakNbeTUY1RbdB8vpY/H9+/MP1qUGkAAAAASUVORK5CYII=" InformativeScreenshot="5a00389ef272de9e9af73feb3e1e2e12.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
@@ -204,12 +237,31 @@
                               </uix:TargetAnchorable>
                             </uix:NClick.Target>
                           </uix:NClick>
-                          <Sequence DisplayName="Success Log" sap:VirtualizedContainerService.HintSize="472,391.2" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                          <Sequence DisplayName="Success Log" sap:VirtualizedContainerService.HintSize="472,544" sap2010:WorkflowViewState.IdRef="Sequence_24">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Code updatefor Testt case 2Invoke UpdateReport workflow" sap:VirtualizedContainerService.HintSize="430.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\UpdateReport.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Testcase2SheetName&quot;).ToString" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_RowIndex">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_RowIndex" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_Data">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_code" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_RowName">
+                                  <Literal x:TypeArguments="x:String">D</Literal>
+                                </InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
                             <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                               <ui:MultipleAssign.AssignOperations>
                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">

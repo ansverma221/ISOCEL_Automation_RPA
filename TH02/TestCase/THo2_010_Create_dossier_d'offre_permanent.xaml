@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1130.4,3183.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1130.4,5288.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -83,7 +83,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="TestCase Name : THo2_010_Create_dossier_d'offre_permanent&#xA;Description : In which Bot creates the offer of the  dossier  permanent and Verifies the created dossier.&#xA;" DisplayName="THo2_010_Create_dossier_d'offre_permanent" sap:VirtualizedContainerService.HintSize="1008.8,3118.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="TestCase Name : THo2_010_Create_dossier_d'offre_permanent&#xA;Description : In which Bot creates the offer of the  dossier  permanent and Verifies the created dossier.&#xA;" DisplayName="THo2_010_Create_dossier_d'offre_permanent" sap:VirtualizedContainerService.HintSize="1008.8,5184" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="v_Config" />
       <Variable x:TypeArguments="x:String" Name="v_User" />
@@ -94,6 +94,11 @@
       <Variable x:TypeArguments="x:Boolean" Name="v_LoginFlag" />
       <Variable x:TypeArguments="x:String" Name="v_CreationTenderLog" />
       <Variable x:TypeArguments="x:String" Name="v_CreatedDossierLog" />
+      <Variable x:TypeArguments="x:Int32" Name="v_RowIndex">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" Value="1" />
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -101,7 +106,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Init State" sap:VirtualizedContainerService.HintSize="967.2,300" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Init State" sap:VirtualizedContainerService.HintSize="967.2,2365.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -109,7 +114,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Init Sequence" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Init Sequence" sap:VirtualizedContainerService.HintSize="472,2134.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="IsocelF_InputType" />
             <Variable x:TypeArguments="x:String" Name="IsocelF_BusinessApp" />
@@ -119,7 +124,7 @@
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -139,7 +144,7 @@
             </ui:AddLogFields>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[TestCaseName+&quot; - Init : Start&quot;]" />
           </Sequence>
-          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,226.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,256.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -180,6 +185,14 @@
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
                     <InArgument x:TypeArguments="x:String">[ItemGainInSeconds.ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Int32">[v_RowIndex]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Int32">[v_RowIndex+1]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
               </scg:List>
@@ -273,7 +286,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="475.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -284,25 +297,25 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Init Failure - Sequence" sap:VirtualizedContainerService.HintSize="375.2,468.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Init Failure - Sequence" sap:VirtualizedContainerService.HintSize="416.8,742.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="375.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Folder">[v_Config("ScreenshotFolder").ToString]</InArgument>
                   <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePath" />
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="375.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <Sequence sap:VirtualizedContainerService.HintSize="375.2,68.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap:VirtualizedContainerService.HintSize="333.6,68.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -373,48 +386,39 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Navigate_To_Menu workflow" sap:VirtualizedContainerService.HintSize="344.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Alice Components\Navigate_To_Menu.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_Browser">
-                        <mva:VisualBasicReference x:TypeArguments="ui:UiElement" ExpressionText="v_Browser" />
-                      </InOutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_ControlMenu">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ControlMenu" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_ControlName">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ControlName" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="v_Config" />
-                      </InArgument>
+                      <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_Browser">[v_Browser]</InOutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ControlMenu">[ControlMenu]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ControlName">[ControlName]</InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[v_Config]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Enregister_Items workflow" sap:VirtualizedContainerService.HintSize="344.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_34" UnSafe="False" WorkflowFileName="Alice Components\Enregister_Items.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_Browser">[v_Browser]</InOutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_ActiviteExploitation">[ActiviteExploitation]</InArgument>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[v_Config]</InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_CreationTenderLog">[v_CreationTenderLog]</OutArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Create_Dossier_Offrer workflow" sap:VirtualizedContainerService.HintSize="344.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Alice Components\Create_Dossier_Offre.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
                       <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_Browser">
                         <mva:VisualBasicReference x:TypeArguments="ui:UiElement" ExpressionText="v_Browser" />
                       </InOutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Fournisseur">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Fournisseur" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Approvisionnement">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Approvisionnement" />
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ActiviteExploitation">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ActiviteExploitation" />
                       </InArgument>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
                         <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="v_Config" />
                       </InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_CreatedDossierLog">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_CreatedDossierLog" />
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_CreationTenderLog">
+                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_CreationTenderLog" />
                       </OutArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Articles">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Articles" />
+                      <InArgument x:TypeArguments="x:String" x:Key="in_RowIndex">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_RowIndex.ToString" />
                       </InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Create_Dossier_Offrer workflow" sap:VirtualizedContainerService.HintSize="344.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Alice Components\Create_Dossier_Offre.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InOutArgument x:TypeArguments="ui:UiElement" x:Key="io_Browser">[v_Browser]</InOutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Fournisseur">[Fournisseur]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Approvisionnement">[Approvisionnement]</InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[v_Config]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_CreatedDossierLog">[v_CreatedDossierLog]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Articles">[Articles]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
@@ -446,7 +450,7 @@
               </If.Else>
             </If>
           </Sequence>
-          <Sequence DisplayName="Success Log" sap:VirtualizedContainerService.HintSize="740.8,248" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Success Log" sap:VirtualizedContainerService.HintSize="888.8,248" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -465,7 +469,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="785.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="933.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -476,7 +480,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Execution Failure - Sequence" sap:VirtualizedContainerService.HintSize="416.8,710.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <Sequence DisplayName="Execution Failure - Sequence" sap:VirtualizedContainerService.HintSize="416.8,742.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -515,7 +519,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <Sequence DisplayName="Test Sequence" sap:VirtualizedContainerService.HintSize="819.2,257.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence DisplayName="Test Sequence" sap:VirtualizedContainerService.HintSize="967.2,257.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -539,7 +543,7 @@
         </uta:VerifyExpressionWithOperator.SecondExpression>
       </uta:VerifyExpressionWithOperator>
     </Sequence>
-    <TryCatch DisplayName="End State" sap:VirtualizedContainerService.HintSize="819.2,591.2" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+    <TryCatch DisplayName="End State" sap:VirtualizedContainerService.HintSize="967.2,591.2" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
