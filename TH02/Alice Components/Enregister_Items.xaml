@@ -1,0 +1,349 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Enregister_Items" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_Browser" Type="InOutArgument(ui:UiElement)" />
+    <x:Property Name="in_ActiviteExploitation" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_CreationTenderLog" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:Enregister_Items.in_Config>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:Enregister_Items.in_Config>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1306.4,3303.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="37">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Testing</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Testing</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This workflow &quot;Click on ‘Creer un dossier d’offre’ at the bottom extreme right corner.&#xA;&#xA;In the window ‘Création d'un dossier d'offre permanent’, fill the below data picked from &quot;&#xA;" DisplayName="Enregister Items" sap:VirtualizedContainerService.HintSize="1316.8,3238.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="Enregister Items" Name="IsocelF_WorkFlowName" />
+      <Variable x:TypeArguments="x:Boolean" Name="v_BoolExists" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Start Log" sap:VirtualizedContainerService.HintSize="1275.2,68.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_1">
+        <ui:AddLogFields.Fields>
+          <InArgument x:TypeArguments="x:String" x:Key="Event">[IsocelF_WorkFlowName]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="State">Start</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="LogType">Technical</InArgument>
+        </ui:AddLogFields.Fields>
+      </ui:AddLogFields>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[IsocelF_WorkFlowName+&quot; : Start&quot;]" />
+    </Sequence>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1275.2,2960.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Nvigate to menu" sap:VirtualizedContainerService.HintSize="1238.4,2729.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Alicecom-scaso" sap:VirtualizedContainerService.HintSize="1196.8,2636.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InUiElement="[io_Browser]" InteractionMode="DebuggerApi" OpenMode="Never" OutUiElement="[io_Browser]" ScopeGuid="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="1163.2,2500" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1121.6,2405.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NCheckState DisplayName="Check App State 'Accueil'" Exists="[v_BoolExists]" sap:VirtualizedContainerService.HintSize="1080,2311.2" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Timeout="[Convert.ToInt32(in_Config(&quot;TH02_Medium_Timeout&quot;))]" Version="V1">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="513.6,2092.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'Créer undossier d'offre '" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1747, 964, 181, 75" ElementType="Button" FriendlyName="'Créer undossier d'offre'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='   Créer undossier d&amp;apos;offre ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2171' tag='BUTTON' type='button' aaname='   Créer undossier d&amp;apos;offre ' check:text='Créer undossier d&amp;apos;offre' /&gt;" Guid="a3d285d3-064e-48c9-ae90-103a85299c67" ImageBase64="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" InformativeScreenshot="60a465696b567e9f9b2a99e4f6a1acb2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Type Into 'Libellé *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="472,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Text="[&quot;TNR_&quot;+Now.Date.ToString(&quot;yyyyMMdd&quot;)]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1468, 343, 416, 40" ElementType="InputBox" FriendlyName="'INPUT ember2240'" FullSelectorArgument="&lt;webctrl id='ember2240' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2240' tag='INPUT' type='text' aaname='' /&gt;" Guid="959a3059-9501-480a-b73f-98ef9ab97e0e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAaQAAAAsCAYAAAAq2Mw0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJDSURBVHhe7dpdThsxAIXRWUF32uV1L6SiKH/DZJKmXYLr66BWCKQ8gFw/nCNdiQzw/MkTT6fr77JcfpX5ci3z+Wc5rNml7E91y6XslvOb7U9mZmb396odtSlpSxqT1qQ5aU8alBZNLUbna/uD/MP2eS1Pc3YqP47Lu8vvzMzM7u39fqytNWlO2pMGpUVTi1Et1m65RejxsJTv+7lsdnN52B3LZnssD9vD69XnZmZmd/fSjdaS+jltSWPSmjQn7UmD0qLpdjJay5ev38zMzLqvRam2aMqRKZXKQwDoKe25nZTOZcp7vBydBAmA3tKeNCgtmvLlUt7nCRIAvaU9aVBaVIN0al8yCRIAvaU9aVBaNOUaXm4+CBIAvaU9aVBa1IKU63iCBEBv7YRUG/Q3SLkjLkgA9NZOSLVBggTAfyVIAAxBkAAYwoeCJFwAfBZBAmAIggTAEAQJgCEIEgBDECQAhiBIAAxBkAAYgiABMARBAmAIggTAEAQJgCEIEgBDECQAhiBIAAxBkAAYgiABMIQPBQkAPosgATAEQQJgCIIEwBAECYAhvAnSZnsUJAC6S3vSoH8npJ0gAdBfOyHVBrUgPc2nstnNggRAd+2EVBuUFtUgreX7XpAA6C/tSYPSomn7vJbHwyJIAHSX9qRBadG0W87tqCRIAPSW9qRBadF0WC/1h7U9NDMz6700KC2a5vO1HE63KKVSOTrlfV6+ZMrNh1zHyx3xV6vPzczM7u6lG60l9XPaksakNbeTUY1RbdB8vpY/H9+/MP1qUGkAAAAASUVORK5CYII=" InformativeScreenshot="5a00389ef272de9e9af73feb3e1e2e12.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1468, 306, 428, 37" ElementType="Text" FriendlyName="'Libellé *'" FullSelectorArgument="&lt;webctrl aaname='Libellé *' parentid='creation-dossier-offre' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Libellé *' parentid='creation-dossier-offre' tag='LABEL' type='' check:text='Libellé *' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAbAAAAApCAYAAABUUHwVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALoSURBVHhe7do9UttAAIBRXyA5i+9Bxx0oM7kD9ByBlooyDT3DDTJJBjL8GduYkOQEG+1KmsiWbJlJcLLmFW9sa7Urd9+spMHs+88AALkRMACyJGAAZEnAAMiSgAGQJQEDIEsCBkCWBAyALAkYAFkSMACyJGAAZEnAAMiSgAGQJQEDIEsCBkCWBAyALPUG7OPx+/Bm7yR87BhrjV+ehN3h+3B02T5vXeutdx72hzsr/1fT6cFO2D2+6BwDIE9/HLA5GwrYuv8pnTc8DEfF5/7BYfF9J+yfdZ8LQF6yDNjzVLu1g/OOMQBy9TK3EI/L3U6pI0BnzfH523u9AVsxt0ta7+AkHO3ZfQFskxcIWBGWxvlpfHgYTpf8rndIdYja6/0OWN/ctosiXNX8GD67MICtsYGXOGJE6siU31s7obSrKsO0fL3+uXPHAdhqLxCwdkziW4Dl7qd6HtWpL2D9c5vXBGC7bTZgaXz1s6ilAVtjLgCvx4ZvIfY9s1q1Xv9cAF6Pf/QSx3zk0g6tmrM8YP1z62MAbL/1Ahaj1FKGpDM4c6/Rt28pttZcDN6SgPXNBeD16A0YAPyPBAyALAkYAFkSMACyJGAAZEnAAMhSK2APtacfAPD3VZ1Z7M9zDRZjNa19i753ap4PAMu0G/K7M3PnLsRpHYN0gcKkWjx+1saP3SYAsIZWPxqNqZvTjFlXqJYZ1AvFhe8fn8L97Fsyih5Kdwvq4wCwSqsbVWOSojnNqNUh64pVlxSw8eypCtZjuJ1Gs3AzKYxn4Xr80HIzAYB+c+0omhLbEhsTWxObE9sTG5QC9syIDVK8iirGBeMFru6n4esomoTLu3GnOAYAfbr7MU2tic2J7YkNqiMWpduJHcFaNEjxKop4PS6jdXE7Dl9uRuHz9Sh8ur4Ln6/uwqer23nFcQDoVXUjtaT4HdsSGxNbE5sT2xMb1IzYuruwQbnzmoa37z4AwMaliMWdWLydWD0T6w/Yz/ALYXOCRzUj08IAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Type Into 'Diffusion théorique'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="472,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Text="[Now.Date.ToString(&quot;dd/MM/yyyy&quot;)]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1235, 443, 195, 40" ElementType="InputBox" FriendlyName="'INPUT ember2252'" FullSelectorArgument="&lt;webctrl id='ember2252' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2252' tag='INPUT' type='text' aaname='' /&gt;" Guid="e9e7d7bc-a567-4d4f-a83d-52e150239725" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMcAAAAsCAYAAADRhqyHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAASJSURBVHhe7Zo/SxxBGMbzBfwUljap/A6SxkoEKwmsYKOkMGk2TRoRDAh3nZDmKm2UIIIBiSIpNOHYSyEWERHEA8FDr/Cs3szf3ZnZnV2Nu6cXnh88cLMzO+8I7zPz7q6vrjo3BEFQWjAHBHkEc0CQRzAHBHkUm+P7r98QBCmlzAEAIJgDAB8wBwAeYA4APMAcAHiAOQDwAHMA4AHmAINJ75hW56dp7P0GnfXUtUy6FDU+0NjbRdq5UJceCMwBBpOoRkOv3wjN7XbVxQyutmhSjRtaaqmLDwPmAINBr03R0U/a54radGeYY3LznNqR6rP0hzqOOe4uWnH/ya2a2wPMAQYDM8lnt5gZajQs2uO0zMyyPqv6LH2mw9s9mlPt4ZUWtTffxf3LkZrbA8wBBgPTHKOLtN/r0tnBFq0zY1DvBy2Mqj5LE/TxqEud0z1a32TGoGv6Op/0wxzg/8A0B9PwxCdqHLDy6GCDFibG4+spjU7TwtoeK6P2qBFOWX19MEeT6kFA9Sb/fUnbYUDh9qXoibncpjAIyb1cKc8RE1SHY44y9CJOjmY9wzAV8xwxQYUoc4yMT9PYxFM1RSMvwhzNOgVBnZ0vfeQ5YoJqUeYoSuiH0aLlfpiD79CBrKlYJRNSEG6z4kpjlFlxmSPLsIBLjRVzqGvmbq/nFvOqfhFKzKXvcU3glnayre+P5zAw43OlThwrHld2THMONwZ4Irnm6NLhWo3qKzVqRPybxzntsN+8zT/8ne3K3/Xdczm8P+awE9E0isDcwcVvM7ESk+hbbHMlCafnj00SjzGfdxTWqaHmSK0peRYRazYNrYwQ3+K2GfY9xTFACeSaI3mVO7nZZm2Z/Pq54nBJPWfEHwH7Yo68h3G7LRPb3HHlveYubZvD058xR5KX6TVcJrdL4hNMNNL97pxsQHoK28T5MUAp5JrjPv4IGF3cs/Y1nRgf+jqn8vf+6bUc3hdzWEngJBXfPY0dOXWqZCSQNaaon+OOcWJK5LrkqaVlGkzt/Fa/k9jiJHDGmOsojAGeTMoc99S57TJxMxDdid9M6v+sdPuON3p2X1/MYe2gIoF0QhTt6AxrPMcZU9TPyY2p1pd1zVpz3pzaOP51FMYA5eCaQ//7CP9a/hLLKnMnNxMinRyexM0Z89g50uNlEpvj9TW9Zr5+yxgM8TfpecTJZBqDIa7peYtjgJJImeOLfC0bfhNfvndC+Zp2YZeXTse0ql7brrLxUUO9wm0cy3urN4e9gyZGSSdxVpIVlUipxHVLKEZuzIwkFePZOGvNhqGEwVh/fI9lBI6Mk5RdxTFASeQ+czyWys1hJmRiFDfhBLxUKdrVrTFF/ZxkTGZMjkpukfAiYZvxOiU62ZXYZGIuI3BsGCFmiqZj0sIYoBQG6uQwa/OMXR2AUhmkZw6rxrceYgGogFRZ9YLfVokSo5WUFFYJBEDZKHPMNNQ3iydpjWaqNAcAfUWZQ5RHJQnmAOAfgTkA8ABzAOAB5gDAA8wBgAeYAwAPMAcAHmAOADzAHAB4gDkA8JBpDgiCpK46N/QXUnvcL1SueDEAAAAASUVORK5CYII=" InformativeScreenshot="5b78de7339456df67e120e4d4fca0f3e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1235, 407, 195, 37" ElementType="Text" FriendlyName="'Diffusion théorique'" FullSelectorArgument="&lt;webctrl aaname='Diffusion théorique au client' parentid='creation-dossier-offre' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Diffusion théorique au client' parentid='creation-dossier-offre' tag='LABEL' type='' check:text='Diffusion théorique au client' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMcAAAApCAYAAACBSz00AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQjSURBVHhe7Zg9UtxAEIV9Ad/F93DGFVw45Q6Q7xFIN/IFNnKytZEjVxHBCQgoTiBLPRqpX/9otLtAAX7BV2almf553Q+2/OXx6bkjhHhoDkISaA5CEmgOQhJoDkISaA5CEmgOQhJoDkISaA5CEmgOQhJoDkISaA5CEmgOQhJoDkISaA5CEmgOQhKa5rjbXnVfv333XP7q7uDsobvun1/vo7tX3e3Dc7e7qfc33Q7uHo/EujmE716M/WGu8+FXdzH24c5Z9hvp82J7H78/hmPyfhJkb6b98nt1Pvfdbt+ezTpzOCPURV9actPURxuyLLjqb3X9993t5QsZ4z8l27mXYf18TjZHTZL+9rbLZJftvXOyOci5fAJz9MACqb8U49eKiR8/4fNQWBTXPpPP5l49679WjWadzmsj1trKv1E8wNQvPVVzbPU7b5b5q2P83saGGiTHps8x9j1o4UyJfV5sD/K5/oWOvm4ep1WEPY931szSY2POPeLd4GvVgob17q5qKNRaTc7F+s41Bwyu8TUKjLRCUHPexsOBj0uvFqAsab1fTaHiSXy9dIYwPwoq9U5nRuH1Epoc5bzKOcachltz6BjQt80xD3u9OYoWbqF0rwYfE/VuztIx1p1oiXdxr3yt2E95r/uLNdP9Z7xbc3gREBiYXWRB14MC+vcBiTngvO5Rfvb1znXGQwEdWjmiPs2dpjmGGG6e6xemomO2ZlmfTeiegvd4V8+p1OlmpnSJ9gbjfQJz1Hj1T6BtpjWceqbci4xwijnMQPUzOT/XC0idST6JMeZp5Ij7xIVpmUNi2PpGWgvj7p5qDqutAe9q3XAnkBKvXctbmWNoMmyixw76aHOY56MItam2ObQI0WImy1o50hylxnzgaT6dp5ED9a4cZw75OdB4Cbkj+s/9tfTPZilYbQ14V+kmWizMrKddy5uYwyY53xytwek7ejix2LqeaDGTZa3YmGsW174H4qGADq0c0XvTB+gilLywyAuL6Yl0CmIeM8uwjxmM5+e4tNhRLfjsDcwhzYPIRkQrgF02+WzPz4JKXoiPTeESlNx6KbC+aMDRM4WtPxooPBsXBrTCYZaebEw1qGYOv3Slz7kPl2PUeUmrWkesBfYwUHNOMRqzrPdm0FyC6hN3Dufk+uvRmuBddcdqpnMnrDPH0KjFNW6WzQ7amqMHYvfx5L/fbBP1/YBqyDc4Cj6dXzBu+kwzx5PFsP0MuGe2BlwqoS5r9H5VDqPLzcb1ge8PgVal9+lMT65Dj9SgzvexyuxmjVuz9Fit5h5xmf2c3E6qPHg3eTbNAPfR0jQHee+0TE5Oheb48NAcrwXN8eGhOV4LmoOQBJqDkASag5AEmoOQBJqDkASag5AEmoOQBJqDkASag5AEmoOQhMkcv//8JYSMPD49d/8A0MDvrgL6vWMAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="472,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(tab)][u(hk)]" Version="V1" />
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Type Into 'Code, libellé'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="472,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Text="[in_ActiviteExploitation.Replace(&quot; &quot;,&quot;&quot;).Substring(0,in_ActiviteExploitation.IndexOf(&quot;-&quot;)-1)]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1235, 544, 305, 40" ElementType="Button" FriendlyName="'Code, libellé'" FullSelectorArgument="&lt;webctrl aria-role='button' id='ember2255' tag='DIV' innertext='    Code, libellé   ' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' id='ember2255' tag='DIV' type='' aaname='       ' check:text='Code, libellé' /&gt;" Guid="ed7c570b-1580-4bf8-be8b-f7f905485202" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATUAAAAsCAYAAAAEsS/jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANgSURBVHhe7ds9rtNMFIBhSpbBHtgSygaoLQoWQGWJbVBZVIiKgkihQWIHLiiuLhswnj/7nPGMnWv7RteT95GO9OXGP5NIeTVG+l79fXjsGIZhShmixjBMUUPUGIYpaoaonc9nhmGYw04yagBwREQNQFGIGoCiEDUARSFqAIpC1AAUhagBKApRA1AUogagKEQNQFGIGoCiEDUARSFqAIpC1AAUhagBKMqzRa1tqu50Oompu4t/bwt73arpWv96s0st1nbp6n6ttX3Rdk116qpmy53k9WbWbtfQf0fhQACrPUPUXAziiLnIVd2mRvQu9b4//nwkdZBWaZuuEp85vXZzn+3fCwBn96jZH25mJ7U9SHvsnqSZ66kd3Do6mJlItm3yuwKwzr5Ri3YmS9zuzezq3Ex750IwvN+Y6+vjbCiHY56649GhkdENQWrE9ZfWF8dcRXzy3cyfC2CdXaOWf5SbcjESOyG7MxI/ehsBGZIQgXCMf8wV93ORfMLuSoVG79pCLMcmmWtP1zfu8vx6hgVHu0C581s8F8Bau0ZN7UzmxAGzZATSP3IVreTjod55LVLXkOem7q+vnfys2ev5tfsAz50LYJsdoxbtTGbk4jf8ffKo5oxh8NHpo5GaxKWT1DrsPWWQ4vuLSPmdVure6eiK72bhXADb3G6nJkJljpvGL/7hhyCMxuu7Y6+NV5qOsNxJ6SB5Yv259Unqev2ROojz5wJY9uv3H/9f2q5RU4+HERm8ZPxsSGQ0op2S/VsImQ7SOvnHydTnUJFKrS+iPqM8/opzAcx79/5D9/HTZ/9K2zVqIRTjDsVwAVJ/kwEzfLDGSPnrDOHzr8U50/DE5yxQcdGRtEGS6/HrGy/tP5O8l/1MmegmHkXz5wKYY4L2+s3bW0XNCVEIk9pRuSiNx0x+0D4k7v0+CCoMTnwfeQ21s0rQ75sg6sDVFx+fxLWdENowYm3Rbkzt2qyZcwFkhaDdPGovQh+WOhFTAMckg3aXUWubeny8BXBocdDuL2rm8Y9/oAKKkAra/UUNQBFyQTND1AAcylzQzBA1AIexFDQzRA3AIVwTNDNfvn7zZ2hEDcCL8fD4r/v+4+fi5P4XKYOoASgKUQNQFKIGoChEDUBRslFjGIY56kyixjAMc/x57P4DBDOTyS5SA3QAAAAASUVORK5CYII=" InformativeScreenshot="6db5c315465b0094f34f63b09d606bb2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1248, 555, 83, 29" ElementType="Text" FriendlyName="'Code, libellé'" FullSelectorArgument="&lt;webctrl parentid='ember2255' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ember2255' tag='SPAN' type='' aaname='Code, libellé' check:text='Code, libellé' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFcAAAAhCAYAAACsszewAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJnSURBVGhD7ZRbjoMwDEW72u6CZbAWNlGJZfAxH6OuIENe5N7EgU4ZS3TkI+UDSBzn2OHmDDVMriImVxGTq4jJVcTkKmJyFTG5inTlLtPg7vc7jNHN6dsZQtxhckt6Ps08Qm6zG9dcx/CwuGm4u2E6sxPG28k95LA6yhMTgtyYVC0zyh7cqVxX5rFN4gz9YrGYt1gmN8CZ5dz9PrKXRm4I0Oms82L+opuQnXjU0e/BhesUa1lEVx6WW1XqiNjNvsvjaL3HhLbvk4/P80LBtjm/vRl8YCx+FjNB/KP86qaiZmrc7K/1kNz+FWuJUqAzQqfA5iEZPFBOJs9Jvx/YLxbrF91GB+YuzkUrbnzsNr/S9SmfLeHqVuBNOFwbIblUqT1qkQFMRt6M5InXljvxEIqBa6X9ObZ41m68lHtqhL21CMitKrVDrwjb++YKRUqC6fBr8tIQQotQHmFPFFPvD7JS50l7y8UHNwdrkdc7F4T5eW0R6gRyYoUSP859VaIMNwN2FotJQP69/BCKt87kwuyvzbT/3M5CFC8WIRwIk686J7zLQlnMe/SvuXQOkiXlV0FnxPkvrM2Q3JxwqZgniqB3KNKTxBVZKc5WgPQMa1oB9ZoD6JBcrCAG80n5ldDpTLhXOFOn+MIvor+2UMmN5OTykDosyilz6sD5QPH7mhglGKn3wRjUaQL83ReGRY9zkiDEjuSC5wG5Vd1JXRzYWQuIci/BesBRKOoncVm5yzSW386Hck25/lq29/jjuO5v4R9gchUxuYqYXEVMriImVxGTq4jJVcTkKnJ7PB7Ohs64fX0/nQ2N8XQ/jJOeToK/icIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DelayAfter="2" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="472,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V1" />
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'Enregistreret associer'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1710, 842, 218, 75" ElementType="Button" FriendlyName="'Enregistreret associer'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='   Enregistreret associer articles ' innertext='   Enregistreret associer articles ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2274' tag='BUTTON' type='button' aaname='   Enregistreret associer articles ' check:text='Enregistreret associer articles' /&gt;" Guid="e0dc186a-d3af-4c93-8bdd-9d83948e8f44" ImageBase64="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" InformativeScreenshot="c08ecf14b5bd27f16085e183ce4289ba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1204, 842, 131, 75" ElementType="Button" FriendlyName="'Annuler'" FullSelectorArgument="&lt;webctrl id='ember2271' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2271' tag='BUTTON' type='button' aaname='   Annuler ' check:text='Annuler' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAABPCAYAAADBXNbTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAATXSURBVHhe7dpBbyJlHMdx30BfAqc9eWlqwoXLctg9VElDY7PhUA7UNGYPJQ0JRombPUCsTSPagFmqmIqmtN0N2rDtukJsRZpUdt1ds3r1HXgwnj38fJ6hdGeG598CDuA2v8MnaYdnmMnMtzPPQF9pNBpY//xL/PnX30QOjINEZ3E0nv5O5MA4qMs/fzQtjIO6MA4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SMQ4SeRbHj09+w87DBu7s7uPhyRPjGJNB16Ph8ywOfYKD0QQmpkKYf+dDVBs/G8fZHT5+jo+/+gavvh6z1kt98gV+ePSrcaw3HiBxLaS2NYfEnun18dnL3VT7lcaG4bVxGUocvQTiDmMkceytYHIqAv90CL7lXdRNY8bkUsdx9Mtz5LereC389oWBmMJ46/2PcP+nR11jvfMM+eUwJmbyyGb1duNYPTaNG49LHYfWSyDjCUNp7WJebWsy8wCNWgFB9XMwe9g17uwkHVWQWIjgit5H/xyCy0Vstf7DuNPfpeXmcU3kM3H4A+3jdGU6jqVCzXHF66yXvbeCoB4XiCBWemx7j8F5GodmCiSWWrNOvn5t/etvRx+GclCIq+115hpNpKNq+9dWsOka1z7Y+tYTxvVkEdnyFtLJRevk229F/Y0bII5WFYkZdaULLGIpt4W87f39yarr/cPw6XGFCrK5IjY8uiJ6HodmDOS9NXzw2bZj2ajCOItB3VLuni5rH9TuiWl7eQjXc03H8o2kOlFdJ7PXcf3HcVff+vwpZF0nul5KwTcVw62afb0Qbnh0tbAbShyaKRC70YWhmG4jxyXMqmXuiWn7YC8ifXrwnctvIn00yLh+41AxR9RxiqyoK1JFXTVsCrcRUPvdidK9PS8NLQ5NCmSkYSibmTm13Rd/bW0nWF3Q++OcmEoH2728v3H9xlHFku14mfhSVdt6L2kcnwpx7DdHFUfnsw2Z/YoiHWz38v7GDRiHmlvY1zGR9sMLQ4tDCqNjVIHUy/oerQJIlZyXZ0seN/xqf2wTU+lgu5f3Ny7RNXfYTJ03NznErRm1X7Y5kkTaDy8MJQ5TGNKEdLiB6M829LbkzzTat5wwYuVn1u/9nfSLxx0U9QeDrolvq4KYdTWT4jidkKr1YmXnRLNevo1J9cjceVyV9sMLnsdhCqMzxzDNQYYaiDDpdDidrE4slHCgfu/1pPc6rnG81b46TcfxrnrUzBfWMKseUd+I6nFyHPpRdmlaHyP1qJzRVz31KJtKIKDeyxctup66XoI4zgvDPmZUgXT++s7/HsU5Me31pPc6TqsfFDH/5px1e/NdjWE+V0P9XlqNOycOrVXDavLFh2C+q1HMZirYs42R9sMLnsXRSxj2sSO9gtBAPIvD/cWbFEaHKZDhfytL/RhKHBeF0eEOhHH8v3gWh/6nne3vGrizc7/vf/ax1tvdx/cnT41jaDw8i4MuH8ZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBIsZBop31lMWKg6hbA/8CH3deq4YCWzAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <Sequence DisplayName="Success Log" sap:VirtualizedContainerService.HintSize="472,391.2" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_CreationTenderLog]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:String">Success</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                            <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="430.4,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_10">
+                              <ui:AddLogFields.Fields>
+                                <InArgument x:TypeArguments="x:String" x:Key="Event">[IsocelF_WorkFlowName]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="State">Success</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="LogType">Technical</InArgument>
+                              </ui:AddLogFields.Fields>
+                            </ui:AddLogFields>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[IsocelF_WorkFlowName+&quot; : Success - Search on Enregister Items.&quot;]" />
+                          </Sequence>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="513.6,485.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Failure Log" sap:VirtualizedContainerService.HintSize="472,391.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="430.4,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_11">
+                              <ui:AddLogFields.Fields>
+                                <InArgument x:TypeArguments="x:String" x:Key="Event">[IsocelF_WorkFlowName]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="State">Failure</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="LogType">Technical</InArgument>
+                              </ui:AddLogFields.Fields>
+                            </ui:AddLogFields>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Error" Message="[IsocelF_WorkFlowName+&quot; : Failure - on application&quot;]" />
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_CreationTenderLog]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:String">Failure</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                          </Sequence>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/dossier-offre-permanent" DesignTimeRectangle="1747, 964, 181, 75" ElementType="Button" FriendlyName="'Créer undossier d'offre'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='   Créer undossier d&amp;apos;offre ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2171' tag='BUTTON' type='button' aaname='   Créer undossier d&amp;apos;offre ' check:text='Créer undossier d&amp;apos;offre' /&gt;" Guid="6759d377-8077-4227-9bf8-bd019b5f4cf5" ImageBase64="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" InformativeScreenshot="5a83d1bb918b875ac67ea0e788fd0395.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM*' /&gt;" SearchSteps="FuzzySelector" />
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                  </Sequence>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAnGSURBVFhH3dh5UJN3GgdwQMR2hSKg4AEqilZoEZCAXBLCHQQhHHIL4rnj4rbT1t3t1m6tnXrFE7QqV4Rqdcejq3a0gozoSrkV5ZAcKAURgksThClXntnn9+YNeQlBadfuH31mvvO+yeD7fnye9/29SXR+t2Vvb6/jYDLNyN7UeK69ifEi3L5jbzrNCbckuI/vmRhb2U97y4j87f+t7PCEiTbzXJq/yU9siQ45KInhFkuig+sk0dynkihuH+73NUcFtYmjAh+KeIHFknD/A82nBYkJ1pYsW2NDI/owr78M9HR1+SwHj0sBnsfEMcE14hhuj5gXAOIIf2XCMav8ML4gDuOAKMxnJOJwP7kojFN9ie1ydI+jnTs5Fn3Y11M53qxZ18N8jzVHc1skUUH94qggEPMC1bgRIOLoIEiNDMWsZJP0437LNX+PzGxXewv68L++9HR1dA97ODk3x69qkEQFAwmODnHYOVWYwHC6g+MCvUEUguGuwL/xqz/kbOekp6Pz67o5VV//je3O70ZJ4kIb8LpSKIHYOSZQs4MTAVLIFQSpEIf61G+3Xxw5VX/SFPq0Eyv8X+l87GgbLYoJkSAOqDCBkQSpZcQjQA6Vl3VQGS98zRZvt1/EI+eccH2xbAmrLjKg4RHpUmQQjfttgMJgRIb61B10etuRPv3La6vvu+alYb4NNaHeivpwXxAiUMwEUrhxRkyPd9SI1TcIDUSYcsQgQpww2JNEIQllP8xytjWnGdpLd/Ik3cBtEYKr+I/K8QC1eIIG7IooknSS7pw2IOJEuMSIGDAhwqisJGGDEDsnRBgV0jm6e8IgT2ii4gHXOcuPGOjhrTleWWzieCw4vbFl4wcRUITIKjzYw1U+0EQQ1LgJjgbSOBF2VpwWB5L09SD+cItCtG2Loun9NGjcHA31qb5Qn+yF8YSGNSQe0JDiAY24bVzjDo8wTSkky0GY6gbCte4te7wWe9Cc0WUw18zIcmfkMeuv1/c7nEyFQ3G+cBuR93As9dgVIRkho3MiAty8BlpOHIH2WzdBKmqC7i7psKy7a/j5UyE8qyuElpt8EJ+JAkm2CzzOZUGLwAVa812g7bQrdHzjCs//6QqyC67Qc2k59F12g94rbgN3jjh+5WCj5Ylj7PeOy4KvN9ZYF6wHEt6OGDiLYy7FMTwIZcMjMj4eQfqDEHHNn22DzqoK6HzWCeWPZJB7Uw57/iWH3d/KIQf3yxpl0CmVQldzGbQVvQet59yh44I7dF/2gJ7rXvBzoRf0F3vB4C1MyQoYur0CBv/tBUN3vas2Rc5h0SxlkYf54dLzidYFG+TzEUdifyIVPlkXBNcC3aEyBMcUhtcR3jSke82f/RWei7FLXTLgX5FDQmYP8A70QNg+ZSL290DskR7Yi+B2qQy6O4Qgr/gQBkrYMHjHB4bvsmG4FLc/cEBRTuIDikrcVlJbmbQhN2HUBwyDBTOM5p/esH9ufhrMK1g3koBdqyE73AuKAtzgPiIbyA3wxxSQVldAO+L+nN8DoftejMrKvS8ghJE/CXrgKSJlTyugvzoFAf4AVZhqVfzUqeIoc8+Pz7IzMqR5CLSebjmvYH0RATKzJDsVPtgcBJcRWBLoAQ9wzE9OZFBj5WN3tOE0gdw9L2APjl0q7YReYSYMV3MZOAayylcNrPG7gcA5NI8C2iDogSaQxPNAAhzHLhb6u0FlYgS0lxTjNYdjzWDgaBgTR2CqxB7uwWtSDvLWYhi6Hz8WSOEYwGq/+whcSPMooB1i2qzy12oA18J8wVpI/WgVXPV1gYpNydCF1x65IXgHxgdyGcDg3S+o6zK7SA4yqQgGHmzSAGp0Twn8EYF2NI8COiKojwC1ZWFuChyMWQFlW9LgJ7wzd1+SQxhfDVR1baRz9JbgSMj7uy72gKxbCj8/SAfFGJwmkNOHQPWjb7K1mSNCei1PpYK2WGECdq+GovR1ZK2jgAQ2aqx0x5idU4W8/nIMUHVjaOCU6dUE2s3JT23VhlNlXl4K/GNfOnTSI47Yr+7ay4BBmFAccVahasQb1d3TCsSlpsrnR5YtY8QItJl9KqV2DkLGi6UgFbi56VBTfgvK8YKPOzIayIRRWwzBkcQcom+Stlv0TaLCMWGjgPedbRk3CQItEVikicL3YLYgZeS1jSANDhafGuro6BoiizATxgSqOqfKLrwkpF1dQ72i4wPKZWY8oA8VRbXPDQSqlxkEGs4+lbqfYF4V9oW/KO401yrI4rsVF+FX4bbkKhfqjraawe7qjf2KkbEyowGs4fCdmQs1eazw75xLnCVYI8fAyzITk3SDD43PHkN7p4xahMk6t4qP2N3KkGuOjJXcTORvJE8lUFPxGXYtgAZpwtS44Uq2rLM+e/SjjtSbnMWsmXnJVQSgiiaMmaTv+XC7uRZapV1Q1iCj1rkvLypDbgjyXmunFEpE9yDr5k7oraBHOwaohDGAlZsiZzvTLHXpW5kYmX3KPTpTkNxPABZ5yWBBY6h9LfE6/xF8WloA3zWVwaP2x9Dxny4qjbh/taEUPrmZBxzBe3CvJAxPrgkb3Tll2P0/CJZlOiw2VI+XWcZp7u4Wuckt2jDaYp6XRC1BTue2AufSxxB6ZQfmc/A9/zdwyt0CczKTYO/FKBiuevVoEYcfJNgtJ7cvcaM5Wmqynu6Mz0MztEE0M0NLpucmKnMiAaZnxIHTVzEgLV+JJ9cGGwu8d4Z1eIrBSz7ykzLeyrEwz0mqM89LVEwIw4hZbgKY5SDueBzMPhoLZ69FwFDV+OsdQdGdUwxWeD/89vDSl39pUpXRBk9H85zEOq0wkjE4RDGBiFtdEA0td4MZIO04ksFydl3+TjsH+vQTKGyyYZwzb0ZOkphCaWAIhLlPUKaqZMWD3ckYOP99GF57mt1Tj1OVoQq2iP/+wgi9X/TNHUv3Df0pUxE5PSehHjEKAqIwdFQg5j71+mQsJOAXJVlFIAK04ZRRVOFYy9h1iOMZ/eEX/vQxUro6ulM3eDiaZSXWMXGaQJOc+JEsOLkal5VQBDBxTODosWLn/vef4t5M9zY32RGSYZod/8QsJ76fwJgoVYyzYiH9LA9xZFnRQFFfiNj9wxXsJzWnWRkTviEmXPp6ulNTXN3e+ntgpmlWQrVpVpzcJFuNm5YdC0sFsdBVzlUwYYjCbnnLsGPVd/OWZZ7Y/rbbFIPX/AMmsyZZTTOa4m3D2nf7TIJJdhzfJCu+ELG1JsdjW/O+4/00UM7pGyhjtw6Ue9cOlLMLh6p8+M/qshPW82axli76DX8C1izyMJ80z9QQY4WxmTTXxM52sfHSZUsMnTB2GJtltkZW5FPJmAf/76d0dP4LBoHw5hzfa88AAAAASUVORK5CYII=" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:ArgumentException" sap:VirtualizedContainerService.HintSize="1241.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:ArgumentException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:ArgumentException" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Failure Log" sap:VirtualizedContainerService.HintSize="472,389.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[out_CreationTenderLog]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">Failure</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="430.4,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_3">
+                <ui:AddLogFields.Fields>
+                  <InArgument x:TypeArguments="x:String" x:Key="Event">[IsocelF_WorkFlowName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="State">Failure</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="LogType">Technical</InArgument>
+                </ui:AddLogFields.Fields>
+              </ui:AddLogFields>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[IsocelF_WorkFlowName+&quot; : Failure | Exception : &quot; + exception.Message+&quot; at Source : &quot;+exception.Source]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
