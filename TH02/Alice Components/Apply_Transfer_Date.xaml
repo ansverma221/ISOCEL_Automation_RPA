@@ -1,0 +1,421 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Apply_Transfer_Date" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_Browser" Type="InOutArgument(ui:UiElement)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Code" Type="InArgument(x:String)" />
+    <x:Property Name="out_TransferLog" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:Apply_Transfer_Date.in_Config>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:Apply_Transfer_Date.in_Config>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1306.4,3820</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="37">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Testing</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Testing</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Click on ‘Advanced search’ and fill the below fields :&#xA;Dossier d’offre Permanent Code= Picked from input file (created in test case 010)&#xA;Click on “Rechercher” &#xA;Select the three items mentioned below and click on “Saisir une date de cession”&#xA;&#xA;In the next window, fill the below fields :&#xA;Date d’application cession = current date&#xA;Click on ”Valider date cession” &amp; Click on “ Appliquer les dates de cession”&#xA;&#xA;Screen must become empty after clicking on above button&#xA;&#xA;&#xA;" DisplayName="Apply_Transfer_Date" sap:VirtualizedContainerService.HintSize="1316.8,3715.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="Apply Transfer Date" Name="IsocelF_WorkFlowName" />
+      <Variable x:TypeArguments="x:Boolean" Name="v_BoolExists" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Start Log" sap:VirtualizedContainerService.HintSize="1275.2,68.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_1">
+        <ui:AddLogFields.Fields>
+          <InArgument x:TypeArguments="x:String" x:Key="Event">[IsocelF_WorkFlowName]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="State">Start</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="LogType">Technical</InArgument>
+        </ui:AddLogFields.Fields>
+      </ui:AddLogFields>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[IsocelF_WorkFlowName+&quot; : Start&quot;]" />
+    </Sequence>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1275.2,3293.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Apply Transfer Date" sap:VirtualizedContainerService.HintSize="1238.4,3062.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Alicecom-qop-scaso" sap:VirtualizedContainerService.HintSize="1196.8,2969.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InUiElement="[io_Browser]" InteractionMode="DebuggerApi" OpenMode="Never" OutUiElement="[io_Browser]" ScopeGuid="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="1163.2,2792.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1121.6,2698.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NCheckState DisplayName="Check App State 'Accueil'" Exists="[v_BoolExists]" sap:VirtualizedContainerService.HintSize="1080,2604" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Timeout="[Convert.ToInt32(in_Config(&quot;TH02_Medium_Timeout&quot;))]" Version="V1">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="513.6,2385.6" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click Advanced Filter" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession" DesignTimeRectangle="965, 291, 63, 40" ElementType="Button" FriendlyName="'BUTTON ember4469'" FullSelectorArgument="&lt;webctrl id='ember4469' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4469' tag='BUTTON' type='button' aaname='    ' /&gt;" Guid="d9dafe64-2056-4410-9f92-0a0e30b1bc8d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAsCAYAAAA+aAX8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH/SURBVGhD7Zg9S0JRHIf7An6E9qZoaHHRoYYoohDEoTu0BBI2XAhCkIZ7IVpcdEgQzKFFlxBsMDDEIETQpQ/0655A+2XHl/viG/0feBb/Fy8893iO3A0IQyQGITGIYYxW7/NfykgMQmIQEoOQGITEICQGITEIiUFIDEJiEO5idBq4ty2Y6YB8aOBVd58FyrheGfWiie3LMirvXdS92ijjbM9E9l1/j0XKePiZfCB7YSBV7Wtms9hHKW0gXvzQzBYv423PeCvi8NhCqaOZTfG1aiFsFPGsmS1DxvMGWsklsWu/aGfjfYF5kITV0M2WI+M5RqvXhmUkYD7rZnpLdgL7ubZ2tiwZHzEc63lEY3lUdLNR3VzrmMk9IrRz5NrTy1vt942T8RfDUT3taLapnf3YRCbmbhUp3QZxG0LJ+I7R6tSQmrIPfO8v6Zqn/xSzBvESQsn4j+E48YTwcfIMnBbEawglE0iMVs9ZHTsWCrqZEyp0Xfv7uUvHBfETQsmsTQzlaBC/IZTMWsVQDoIEEULJrF2MoGUkBjHHGF1Uync4jJxg0zlWf1+/OjJziNFGIZtGNHyCLeMWVrW99HcWk2QCjHGFlJ3EVuQc8fsnPK3Au4pZZAKLYcZM3JSbqGvnqysTUIz1lZEYhMQgJAYhMQiJQUgMQmIQEoOQGMQwhgB8AdxQNwdMPrfWAAAAAElFTkSuQmCC" InformativeScreenshot="26f0be8bc9c26f769af839522af39f37.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="882, 291, 63, 40" ElementType="Button" FriendlyName="'BUTTON ember4466'" FullSelectorArgument="&lt;webctrl id='ember4466' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4466' tag='BUTTON' type='button' aaname='    ' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAsCAYAAAA+aAX8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJWSURBVGhD7ZixattQFIb7An2Xrpm6eGoINQ0hgzso0EAwLkHgDAKTQYYQAlqsQQFD6yECp4sIKIMECcGGYAzxkgf6e5XI7m/3urEshar0fPCD7XNt8Od7zz34DYQZIoMQGcRMxt3D438ZRmQQIoMQGYTIIEQGITIIkUGIDEJkECKDEBnEq8gIvTOcDvW1soV5BRk3aO1+RMW50dTKF6Z4GZGHhhfhtOnhUlcvWZjCZXxr23BHj4h7NsxAv6ZMYQqWcYVGs484eTzqw7CuNGvKFaZQGbE/vxumu4TXrJpW5zvevtvMnGr9WPt5y8JkkzEawHVOYFrqS2uyU1/oE6p/7Ozr15rWCVr+4HkXLUlWIVlFJGHW2Bn3OG9/QcXq4/J2jHBI0eyCmOtJoj7Mva8w/fvf1uqyqpB1RCRh1j4mYdBFTf3q7q2+rkugjlG13sVFxhnkJSHrikjC5OwZAzjNA9Q6EUJtPc0wgl0/gNEb6OsrZJmQPCKSMIU00LBrwfAn2trdwwTuoQWngIl0UUheEUmYQmS8dGss3jJ5MhVShIgkTAEyrtXNkM4WaQK/N99L1MzRaF//el6iMPll/LBVL0iPiOoNrb1tbOxbqG5to+pMe0lyVGyc8/tKEianjOd+4I7GuOgc4f2nI9jBOK3Nvxb3/tRX/l6YfDLU9q/tqi/52Vh+ozzdJAY+NC1UDuePUxnC5JIReiY2VpwbnuaSLbN0/3MwOWRMEKoJVF9bljGCYbmOCpO/gf7jYUQGITIIkUGIDEJkECKDEBmEyCBEBjGTIQA/AVBbRkNYxlojAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NSelectItem DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Select Item 'Dossier d'offre'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Permanent" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NSelectItem.Items>
+                              <scg:List x:TypeArguments="x:String" Capacity="3">
+                                <x:String>Tous</x:String>
+                                <x:String>Permanent</x:String>
+                                <x:String>Non permanent</x:String>
+                              </scg:List>
+                            </uix:NSelectItem.Items>
+                            <uix:NSelectItem.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession" DesignTimeRectangle="1002, 696, 150, 40" ElementType="DropDown" FriendlyName="'Tous'" FullSelectorArgument="&lt;webctrl tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' aaname='' /&gt;" Guid="8e32d863-21f0-4301-a407-8f9e5dfbe951" InformativeScreenshot="ca2428e08e43119f8691e18f7fadb80d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1002, 659, 421, 37" ElementType="Text" FriendlyName="'Dossier d'offre'" FullSelectorArgument="&lt;webctrl aaname='Dossier d&amp;apos;offre' parentid='valorisation-date-cession-filter-favori-formulaire-recherche-dro*' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Dossier d&amp;apos;offre' parentid='valorisation-date-cession-filter-favori-formulaire-recherche-dro*' tag='LABEL' type='' check:text='Dossier d&amp;apos;offre' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAakAAAApCAYAAACP69Y3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAM2SURBVHhe7dwxUhUxGAdwL6Bn4R6exZZDcAN6L0BhZePQgg1WNhZcAAfs17fJ5m2SzbI8QA3y+2Z+M2952SS743z/CTq+eXv0fhh9+fptUEqp115jL0x9kX9PSCmlVFZCqi9FSAEgpHqyDykA6I2QAqBbQgqAbgkpALolpADolpACoFtCCoBuCSkAuiWkAOiWkAKgW0IKgG4JKQC6JaQA6NZmSB1f3E3/gX1Vt1fDcWP8nxL28RfW/Phj92w/PofPB695cjXcxLcz3FycLq9b9wCw6mEh1WjUoZkP18PH6ucv3VNCKr+3dQ3AYR4dUm+PTofz2/+vCRfBcnZ9wPPF9zGfmOprAA71hJDaGZt4fZoKP5urbNJTsO3rbjg/Wb83D4jlPuq5yn2MYXNzcTV8n779fjZ/lwuhlGo3//l9IZX9+i7U/rvP+3Vi/Rp+Tp9ijXsbx+ye9yI947zfYg/1OwF4xZ4WUqFpz001jM2b7NTUU1DVv/4q5q7mSo0/hUu5j/hdHoBx7brx39/w63vi9a7yYEqmAJ3Dbgqm/ditk9Q0vhW0+XphHUEFMHrGkKqbcjTf32jIuY3mXOxjHLvYU7l+CKm1fQdlCEbre6wDNgh7TiFXP399vQzW+P7mkEyaawG8Qs8YUq2mn8ZMjXg6jcSqA2kKiFRVk873ET6vVBFS9zX6xcktat9XB04yPvNaSLdDqng/xfuoSkgBPMPfSe2/Wwmp4rSR5IHUOD3lzXtq1vk+tk9JfymkijkOD6kYtsuTFADRE0JqqylH94bcWvNPsoDL53lIc98MqWaoxv207mvOVwTw1vtYO0k1QhqA4NEhFZp2FRQxPLKmG04aqVE3AiA/iTQadh4M5T5iw1/ONYfAdkgtwy5er9w3ne7mkKn38IiQSu+keL9x3HwfwOv1sJBq1drpaGrmqcpmOzX2rPKmvVgrW6MMqe25HhJSo2LN3fzFP0GvTUG4r2LcY0JqHpeXgAKINkMKAP4VIQVAt4QUAN0SUgB0S0gB0C0hBUC3hBQA3RJSAHRLSAHQLSEFQLeEFADdElIAdEtIAdCtfUi9+/AJnl3+h+0luLy8BLpxOfwGP4QELgszQvkAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NSelectItem.Target>
+                          </uix:NSelectItem>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Type Into 'ICode'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="472,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Text="[in_Code]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession" DesignTimeRectangle="1197, 697, 239, 35" ElementType="InputBox" FriendlyName="'INPUT ember-power-selec…'" FullSelectorArgument="&lt;webctrl id='ember-power-select-trigger-multiple-input-ember4631' tag='INPUT' type='search' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember-power-select-trigger-multiple-input-ember4631' tag='INPUT' type='search' aaname='' /&gt;" Guid="932b05ad-0737-41cd-8216-4f2bd82fa56d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPMAAAAnCAYAAADaWX4GAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKtSURBVHhe7ZjbkaswDEBvA9vL7WMrpAAaoAS+U0B6oAhv8ANLIEIent1EOWfGHwRLNjM+lnb/ff3/DgwG4/0HMjMYTkaU+XQ6MRiMNx+LzADw3iAzgBOQGcAJyAzgBGQGcAIyAzgBmQGcgMwATkBmACcgM4ATkBnACcgM4ISXlnka+9D1Y5jy89Och9B1QzinhzB0XRjiwxTGvgv9+MxKN+aLe+hClyYCNOOlZT4PbQ/9/uUgRXyQaQx914fk716++fcyB6AtLyxzi2opOaqWpWI/hroo9vJNk3GRALShocypGsUW0mgj42EX7+2qJd6Pc6XT82KlXubcW+F0tZRVv4g4ivxH+1tXeCtffX89FqAFbWSOLaYQYPWcJBSVKlYuIeM6fjn8ZU6qqlKCdDncUU1VG6yrdLkkyvop93Z/tarn/dQP3uaryQ5iAdrQRGZ1eDPLb2txI/Lw24dbyWq2rbrSHqJyyFhrfZ3b+r6jfKbYBfN7AJ6jgczXpTIP84Xld1UxK7VVzbJd1rDG3rpr1D7imlLE9frim3JltdY2Lxv5PbfEAjTieZl3ZCzMEtUWsyCqlxKrUuVLc2+V1kZXS/U3rVUlN0JeF2833w2xAK34FZntNlPKsoqPv9lt62Pst82qnc8oOQ++b2aT745YgFY0a7OlbPFwF0GkuDNZ1Do/xVfh87OI2Qq3jjlASaUvh7RXsR91kcyk+Wqt+E32ZaMvr6NYgHY0+QdYEWD5e3B1UpOM9f3mIKv4i7SyVc0U6awcqhoa6PfzRaDFHs5ZOiN3olwwZYi9qYsizdPxV2IBGtJG5r/mItRQKivAh+JC5mkcahsP8KG8v8xzm7vtiwE+Dh9tNgAgM4AXkBnACcgM4ARkBnACMgM4AZkBnIDMAE5AZgAnIDOAC0L4AZEZoHCbI+uEAAAAAElFTkSuQmCC" InformativeScreenshot="2dfb54c31821d49eb8bca0a4e582819d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1475, 703, 25, 25" FriendlyName="'I'" FullSelectorArgument="&lt;webctrl parentid='ember4636' tag='I' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ember4636' tag='I' type='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKISURBVEhL7ZUxa+pQFMffF/AjOLl0Kg5ZsrRDHcQQ8mgpDmZwKYi0SMAOgpMFESGLDgoByaDwLIHwIA4JKMVAeQh16Qf6v5PEZ6K5Rhff5PAbPOde/+ece87Jj4+vb/xvLqJn5SK6xbLmsBh2Ju4cU5dh3yNZ1B3jkROQFl/RMlfsMz4rjHuv4L2zT+OjQSaIrtCvScj15jAnXfwUy1DMNePcGqM3GXxVw2hho3n/gPIkKcAEUee9BS7fxojhS8RsH713QHTuR/z8zsrsGCsM6w+4VecMXwBTdNqrIF37BYfhOwmvF/gKOguGj4iLHrlwKmZC4HuiQfMkleZ0gidiNdWOqN88WQGpLRKuxBeUVANm5ByThYFm7QX8jRS5TzCaKiLqRSYgU2xDtZaw/ni2NSzbgFKUkL7vYuTb4jhmF7ccjdebQcshaD7HXWKst5HjhVjltqL+G8gaphFniNeRRWTyNI9iHI4vUqcfmE1bQ4FXoEY21UaUsqThb9qhI84Myp2Cjr2C5YaYAwXX9d+JnT7uUHCRbANRr2OzLQw3xkMM6xJlFLeVJ7u2GNQrqch6DEQXGnJi/0BpQ4Z1gdbiMmJboiULsUBiWH3w9HT/mnFTXgPlbAP9A40SsPbHiZXpo5a8ax29gVTd2P7eiAZ/uJvFHvYAuTt6gr3AvDG7lgcJVfKq4T1BuFI3ogSVuMBRF7K+EK6B57yX0Wfc9/UJ9UkCR9sn/kkLut6biuich6Ieto6SSAtBbqA5MNCf6DTwFVzxMkpaQhUoG7UqI3NToUWi0z0DHbWBAi0KvqrHqrAr6rOGaZJYowWFaA5mMBPfOsSxZyQW3FNIfGSzv1IM0fNzET0j3/gLKk5+uwsHZS8AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'Rechercher'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession" DesignTimeRectangle="1393, 882, 134, 50" ElementType="Button" FriendlyName="'Rechercher'" FullSelectorArgument="&lt;webctrl tag='BUTTON' aaname='   Rechercher ' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4716' tag='BUTTON' type='button' aaname='   Rechercher ' check:text='Rechercher' /&gt;" Guid="131c0232-5872-438c-8382-38efa16a398d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIoAAAA2CAYAAAAYjwFqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAASMSURBVHhe7ZrNSxtdFIf7D7jvpqvui4tssqmLuhBdKC0hi2YRwYJIRAZSpCBdjCBBmE2yqDAgWUSoQQjCuIjwSlGQEKib9w86vffOR+7MXJMzTvz+LR5Icj/OeM9z75lJfDMzu0QATAKiABYQBbCIRPnz938AYkAUwAKiABYQBbCAKIAFRAEsIApgAVEAC4gCWEAUwAKiABYQBbCAKIAFRHlRDOm42yHb2afahkUrGz/JclxyjvrkDUz9+UCUF8GQOu4eLX4cJTNFYY2qzVPq3VEYfS6I8hy56pO9VfaT+FHI4LTpwLumc9V+Q17/jFpNm1Y++bl9v9qiw4vEHAxCNyQQ5bkx+I8aG74kxXqbOleGPiGDS2rtrtFb0fedlGVcXwOhGxKI8qy4oU5zk96JfM39OKGesU+SIR021pUsc7un5Bn7mIEoz5WLDn2V5eTzXrbTYSBK1eoyzRQ3yfZuzH0M3KMop1TTJo+zTvYd6uRt9JrrNFNxmbtqOjxGzBE3dPzLovezy1RyLw3t4/GObCqIPCw6/eBeZjJ6/u5FlFo33aYWeYqyvD5RrsnZ+iJOBYsaff6pEHF1QrUFea/i0jHzKehRRPnz95LsyhLNN7PvBhOvThRxE2uvilxlLTsh0fh99vhHEsVvi4ly4dJ8EF9RP9X6S3y5onbtRAqTZte19lQSk+NtOtDaD8TY+aYblUv/uvPG9Oc1jQ/b0jEZiPuMHXldGRIdQzwBNeR9yoJYg6csilpkPVFdW7zXFzFIUCRL8F5LhD6H/1oXLzk+LWbyGvyEGq7hzjGT7wWJvzMdk4tI9DeZ6J/sRMcQom2XRexyizpPpfToAUZokgj8nZUoQ+qECRZRf633CUgmPfosTLJMUGq3+4kM46qk6X3yxlTj4+0SFSeQJxWTzZA6jTURv0JWd2hoH8+594sWC0tUqJ+wH5H1/N37ieIvbnLxg50XxI4T9FU7Mb3oIbEEGT7z45rmT4iS2v13j+mPT8dT6KLoMTPg9fZpTsz1Yet3RtGGdLgrJStTtX1taDejX/+DlB61ODFZ0mUhRc6kcXbutEVRr8eMl+QRRd5nOBviyWe2StYRP+Fer6VOE1V2MpStBxclKknRIhtqeRJOGZh20nLG9EW7fbwklyiC836bSvKHwOIm7XQny+J5Ln0Vj8XyB8LtjCXrEUQRBMdy1JZ8L4gn1yCTlsiJSQvlTI0fxUwnLW/MYHysT/z0zCuKxOuKE6Io5hGlpLTbEaeE4XsV8Tjccr5TUa6BYpkWG0/mK/wxokT3JdqOC2QZkTwBwjEho7GTkyYJZNHQr82ctLwxk+PjJXYaokjOvTZVP4unoCBGobxJpfoeWfXvtFKpqN+DVNuCRTtum6yK7JtNlnBuyZRFAQ+LeBJqt6j2TRMj4EPlB2272v+iXJ3RdkZZ9PkgyktiMBz/X20ZZYEor5kMskCU146QZWe1SiXnDKKA/EAUwAKiABYQBbCAKIAFRAEsIApgAVEAC4gCWEAUwAKiABYQBbCAKIAFRAEsIApgAVEAC6MoANzOEv0DnU8cOv0/EsYAAAAASUVORK5CYII=" InformativeScreenshot="4c4ab154aaf1caaf2782bda78b66bf45.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1499, 868, 20, 50" FriendlyName="'I'" FullSelectorArgument="&lt;webctrl parentid='ember4716' tag='I' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ember4716' tag='I' type='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAA2CAYAAADd0Vm+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJtSURBVFhH7ZUxayJBGIbzB+yvSZXqmmBhYxOLazxTKDnEIlsoGDhEkQWDBCTFCrII27hFAgthixVOESQwFiskHBFEhNjkB733za7mNI47cpzFHVs81b4zz8w338weRaLnOCT/geDz1wIOSXgGUkKBlFAgJRRIObzg5+sbDkkokBIKpIQCKaFASoBgjl7fgWa0US6pyJRuoRoWjK4LNhPlxQgEczhWC6kz8fPrESsi33nEcA/RpmDiQqvm/EnOaBLDxj2bYux9X4C5I5gdDZkvvuikYOLheW28gN+C2RP0kj95vGbDmWwGN5i9wGwW8Ymyx1wSkF0KFnA6FRzTgMTNAMMPITFzPOjfPUmi+QgmzKwEzw4u+bYvWoGr2WJGJS2kEYlXoLGFMEOCBXp3Kk6iaWStF2EoCNbVEKNdpAx3eVabkGAKo/qNVqFCd8WrCGQyQDnJz8JCT9BVR/xwtcIflGfF+/i2cDwJXDSU3QEp1FE6P4ekhnuh4JUCVzxwKwxIoQXWc7TAnAlHWCJ+c/Ui9b8CtT/fCsgYszukYueI1QbCVvXalA3bSFAnnFZ/7HkHVtBdoAsXieaQt6eC70sBr6NRok6K5qF2xUERbGh6q/fKs6O8voAYuzay/IGjS9PoyyWMWbik9uQPXz2gtO8CDuvTiuI0iLacbTq0KsG9oLY0jWvEqaT+65pGSpc9FWuMmY38BXXVcoJYroJsrQW1do2MonjvlfctqaJh2VAVnt0t2RL4UGfZJspXaxMuOVVuULfW/gWTEeoBkh2CD8zmwX+xAMl+gn3YIfl7Ag5JGoU8ssboQAIB/7rgDb8As55+LjNFcicAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'N° Dossier d'offre'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession?dossierOffreTag=TNR_20220325" DesignTimeRectangle="260, 382, 18, 18" FriendlyName="'I'" FullSelectorArgument="&lt;webctrl isleaf='1' tag='I' tableRow='1' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' parentid='ht_738f34864b0b5a77' tag='I' aaname='' /&gt;" Guid="ffa4804b-fab8-49b2-bd0a-f02e882beff8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAA5SURBVEhLY3j9/uN/WuAhbPCBs5epgrEaTCkYNRgORg2Gg1GD4WDUYDgYRgZTA2MYTG1MI4M//gcAI/E9nKc1efEAAAAASUVORK5CYII=" InformativeScreenshot="695f054676be7ca2c351c98803008354.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="295, 381, 167, 18" ElementType="Text" FriendlyName="'N° Dossier d'offre'" FullSelectorArgument="&lt;webctrl aaname='N° Dossier d&amp;apos;offre' idx='2' parentid='ht_738f34864b0b5a77' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='N° Dossier d&amp;apos;offre' type='' parentid='ht_738f34864b0b5a77' tag='SPAN' check:text='N° Dossier d&amp;apos;offre' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKsAAAAWCAYAAAC/vGyyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAMYSURBVGhD7Zi7cRsxFEXdmAtxFYpUASNWwIAhE4eeUaRAudItQIFGoQKPKoABEp/7flgsRS4JD4ITCIvP4r4DLEc/Pv9+ucGgB4asg24Ysg66Ycg66IYh66AbhqyDbiCyvu4f3M9fgYN7hXbybD+V9ukQ+7N2weR2qZ/CbtLGrMjHi3s8vsvWPX0oz68FXzfnKfOfh2Uc6/H2vC1ta+/vwhiyPrjH53fSUcgagz6JdgqKjynUZQ3YY1fgP5AVa5fzzPMnzjkE94MpKy+ckPUYbNn88bl5uxZZ+S1a1uz71J8FlzX9vXlxb1r/CilHcujz/H1LmqjI6gH5hKwxiKU3q/zkv7unzemZGI8/MwJaEcXtoUg/1yc/t9oj7DCWTA7ly2EeWA/Zj19r4uvGnPgc4v1RPu2rtXW//+DnPxLmhb3u9qlP2Tf92XAHP9EAXdbNNoeTXlbIGsDwa0WqygoBgYw8tAIUShQxAdIt6gNt/KAk4B3F4faYB9aa7wis2zwujTlXVuSUqbafgH0JrYsuq99UEfdUHFXWZuqy5oIkESDQElS5gfM78HHaLd3SR8ha+pT3lW2luBXZIjxP0maOBxEh99pcRKy8L+OAYy2rffEmvx2mrBhUCIA+o5PMs0xW7aYl/VJ4GLzWf3GfKA0fw0hCtGdi7J+vS8Z4+H4TyrjlstI17S9ZwDpM61KRFTfgf5NdUVYuZ/6br6WEb4WM68z24QXMfxvE9/q2rLl9RlZxwOS468qq121tqrKST2/iCrLyoLm8ua9104jnythaH1NWQ6JIu6zazwrP3Dq3uFmt3O6AGVk9WFz+rBlb1nKiIbwcKIYPBye+gxowK3BLH1lAuZa2h3ZZoS+8R26zZIU1cY3aXOfKipnnGlmH5UbMy4rtyrM2IHQDErKHrEnA4CrzKpKZfbQC8kOa0GRryQRkkFiy4mGuj/m2rB4rc16bW9EkKwn64rLahRLC4O2YkXPLcGf6WAWcWX+RrAEirF9L/J/VgIwLyJvuErIGuLD3ImqAyDoY3DND1kE3DFkH3TBkHXTCl/sHtFd0rElwQi4AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'Saisir une'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession?dossierOffreTag=TNR_20220325" DesignTimeRectangle="1685, 964, 243, 75" ElementType="Button" FriendlyName="'Saisir une'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='Saisir une date de cession ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4745' tag='BUTTON' type='button' aaname='Saisir une date de cession ' check:text='Saisir une date de cession' /&gt;" Guid="5af0fc4c-fc31-49fa-b5f5-b1b6547b8ead" ImageBase64="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" InformativeScreenshot="b8c2763c4e5f618941aaf89cd20bacc9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="229, 964, 123, 75" ElementType="Button" FriendlyName="'Retour'" FullSelectorArgument="&lt;webctrl id='ember4744' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4744' tag='BUTTON' type='button' aaname='   Retour ' check:text='Retour' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAABPCAYAAADCxxq+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAUhSURBVHhe7ZnPayJJFMcHFnZOu+e9eJpLTmEPXrwkh8khJAQlIXgYDw4YkCFhaHAQIeRgQGTBix40NIgHA0mYRWTNgoJhSSBIYHOZP+i7r9pu7Y6lxh1bJ3lP+IBWV1VX16d+vGrf/Hp0DYV8+H1EPuOPyGf8Gcj/599vAgP+/Otvy7dC5DPj7OxM5HNF5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DPGJ/n3qJomssXyjNRQvXnU1Cf4gT/ye22ko9v45fdZicFoPOjrFOaOz/L3sJUp4bhQnkIO+5s+yr8xsaEdbIowglED6fNbfdmpPKBe/IL0le7aj43P8uMwqFM7ujwebpE/CFN+f+WHUjWUzr96KBRziOyoe4exb97ry0/CrvtQ5Ds8otFuo964RiGTwMbn8pS9fDHyN4pjZnfvK+LvabDulHCpuz4JkT+OB1TzcZJKHRtKwqh1x6wCS5ZPVFJqpcqi4km/Ren0CMGQuraNd5tHOCy3h89wle0/2wBX+bs28qkJZYlGMektMybd+V24ymFd1ReKIl77/n5anHybkHYVWLb8Lo53qH3vc6g6ab0mDLUdhBI4LNZpi6gjm0rgHdUTTDX7EklwqXyCEKVF8mobaaNllz1UMUwwgbhVtob0QQwBd1liNvlhBFRbymqrMlG585b5P8xR/j0q+S+IfDxykcS6Wk7poVejSYSC9iAYWQWWKL/XRYm2JiVmvdAdpF8WaNAGMyg86eROLUN54zhu22maZb96ukfPkkTWyWNTtybCsOxs8rexP4fZ7maO8h2BtmAPYUTKXbRumjj+FBukD1eBxcj3tslFkE4l+WZ/1lrcIqsC1mgOhScBojPTBwNpRP41DDXgP194lniLuxoilDdkD7LZ5NNguvHm+17mKP8RLTvIG6WNyztnqX/AZS2HLXsvtFYB8wLHH/2X7472C8UTbFAbVmI5VEY6lZZt1bYJBDJNT91D+f2yjmAvdr209Kvfr1C+hpZb/je0WjXEd52O3EPktAwjpr4veNlvm9hSW9EmdXTPlf5E0kREvmL6st/p3VJcYGDVTv9t9wR5JZvSl7XndyhiD9K1QMx0HfPsAPA5R78R+dOXfacdfanGSFxRzai+eFHyxwR8a33R659OsK86lL5bs52i48Zgti0x4KNtqJKK0r3D2CoPr1sBH7Uzfu5tT+f8BKsUIwyOWiPypwV8UaRb/d8t07DuYTRc+Zx3Di9Lvo7Ro95gtnvyLVM+4XR4MIm808HOcY0GxcapihXoqJcxrBOLZ5W4q2Of6l49KFFwONtRzyprbTtHSNMRrlT+w3rbuBV7ccu+Drf8p7PdzZLlE9aMpjyBg/ow6u95X9QE1mIUn9AzuMr1nzGJFesY6xo8mpc8updcnZaJD7t71sAIrMXxodi2tqJXIj+BlahutrvxWb6gxR/5rj92Ds3rMbPdjchfBj7Lj5H8pv745+FikF/kLw6f5c+KyF8kPsnvokCRsffY9wwOKDZoTfrrV5gnPgd8wo+MyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMR/6bn97CH34egy7vc9HV406bB5Pu9crQJs4Fd+e50eV9Lrp63GnzYNK9XhNv8R+FRJsV7xQAUQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Type Into 'Date d'application'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="472,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Text="[now.Date.ToString(&quot;dd/MM/yyyy&quot;)]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession?dossierOffreTag=TNR_20220325" DesignTimeRectangle="1235, 303, 200, 40" ElementType="InputBox" FriendlyName="'INPUT ember4749'" FullSelectorArgument="&lt;webctrl id='ember4749' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4749' tag='INPUT' type='text' aaname='' /&gt;" Guid="ac17e9dd-7d2a-4cc7-b5c5-38d57a01590e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMwAAAAsCAYAAAApZldwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAASJSURBVHhe7Zo/axtNEMbzBfJJ0rhKkTZVSJM0wq0JXMCkcpFOVZqXgAMBqTC8Jk0qu7ERRmBDiFMqbxBSiiRFggkYHxgsIhe2q3l3Z//c7t7pzkt8Z8s8Pxjw7sztrGGe3TlJd44nfwgGg13OIBgYLMIgGBgswqxgPn75CoPBZlihYAAAeSAYACKAYACIAIIBIAIIBoAIIBgAIoBgAIgAggG3ivTDP7TYekGrn0/0zAwO9+nlsyV6/v4bnempywDBgFtESpvLj+nugrBHazTSs0UMXuu4hRXaPNaTlwCCAXPN5Nd/9Omzsh9TRzALHRpMf1qfa6PDi0AwJ/TD+Edp6Y0DwYC5Jiv8x7Q6OqGeEczyDqWjjvW5trid0mi9pccr1Dse06rxy+f02kVAMGCucQXzdOM3kSj+ze19OpgSHWw8tz7Plrfo4DylwfYO7f46Jfq+Rg+sD4IBtxhXMHcXntDi+h63Vr31F3TPzuft3rM16skWrN+hp/cdXzOCGVI3Sag7lH8fUb+dULt/xB7LUZ/aSZvC6Vq5jpygUXzBXIHdlBtm2C0QUc1cR07QLCyY+y161Fr6e3v45IYIZtilJOmKe6hBriMnaBwWTEWRX5Z0e6UZwciTPFH9mOiC2pS0+6IxMzgtmm2RVAuXSNOxvIaec28Fszavq/2citcyz4TCCNtCNTbP2zUc3PzScjeTl09acU53jTAHuHpKBXO4T923HWH7dCCGk9GWGm+MaTId03v2bdFgqsIbEoxfnK54GPek57/dYsuEYx7xBZcVoVnfCsfGuO9PGu920Wvk9pS92/CeXZFrcdhHwrHAf6Y6B6iHUsHYj5U7NBBDFoR5TzneoUX2ZV9cNiSYshd+f6yK3T2Z1bPuae4LZoa/YI2sVvN7OMoeV9ibjgd5f7imCMgv4Qu7PAeoi1LB2C8uf9JEDM8Ox9mXk+cpjdg3pvRchTcjGK8wgkKTp6xzcudun4Ki8mKq/JIwJsipUPtSt5sxV3T6hvD8QbHzjRHEuPuozAHqIBTM2fRUtFun+tv6C/57Mr3gEZ0rnxobn4ltSDDeSctFZYqk6uQXePGSIKbKLynNqfdXNOftuWxNI6bZ+6jMAWrDF0z205hV+UOym9iSuSe+WyT5gplRzCUxsWvk41Vhu/FmzuxZ7t8Ti4D/J7MO32CuWAQ8Z9atzgHqwxfMCe221UfE/7Jg3umPjN/xDzHTD6/UuL0nBLNHL9n3inabE4x/0mbiyRd2UeFVtVe5Yg7bL0FpzoLC5XgR5+3ZERmLTvjtM544JCpP1rJV5wD1UfoOE0kDgnGLNBNPWISMbHOqTn8vpsovyWIKc0p0wbMIuIiHdp8KIwBtYjFey0lsRcQmhDIMhFuZA9TFfN0wbq9fcPoDUDdz9Q7jvTN4L8oANEPYkt3oT8m4PRln7YjXPgHQACyY1hv1y+O/tN7rpXoFA8B1w4Lh1uqKDIIB4OqAYACIAIIBIAIIBoAIIBgAIoBgAIgAggEgAggGgAggGAAigGAAiGCmYGAwWLHlBAODwarsD/0PtVQ0+d1yB2IAAAAASUVORK5CYII=" InformativeScreenshot="8e5590f42bc69f2605b051ad6ee88f84.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1235, 266, 603, 37" ElementType="Text" FriendlyName="'Date d'application'" FullSelectorArgument="&lt;webctrl parentid='valorisations-date-cession-popin' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='valorisations-date-cession-popin' tag='LABEL' type='' aaname='Date d&amp;apos;application cession *' check:text='Date d&amp;apos;application cession *' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAl8AAAApCAYAAAALW0zoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAATJSURBVHhe7dw/khM5FAfgvcDehXuQcQdi7jDkHIF0Ii5AtMnURERbRQQn2GCLE3i7pf4jvVbb2B5rvewXfMW03S09qU29H21qfvvr7x8HAAD6EL4AADoSvgAAOhK+AAA6Er4AADoSvgAAOhK+AAA6Er4AADoSvgAAOhK+AAA6Er4AADoSvgAAOhK+AAA6Er4AADoSvgAAOhK+AAA6Ohm+vj6+O/z+6vXW20+Hr43zT3p6PnxuvX6x58PDUM/D0/jzt8PHt68Pbx6/hXNu5/P7YS/eP+fj758Ob169O3z8vj3vMsNepXXln9d1/mo6rS3dnw8v/PkDgPP8XPhqBK0UOs5tZE8fzr/mpDsKXy/qVw5bveW9fPP46fDw9sPgin88AMCVLg5fc9A5K3jcPHzlMNQzsAhf/x35Ke5LPpkEgPNdEb4GMUylr3XGJ2KFOZikc9fXl1ARrzkZZHIomc9PTzOGP9vhawqIxfnbeodm/FjWVjbnKQANc5Q1loGoCl+brx3j/HXjT9cW467v12vM4zfCWNjT6onfXMvTfu0t8Wvm+iliXE8I0qGe+l4e24seaxvnGK4Z77WnXgD8i64LX1XY2G+gy2vpuGjY6bhswqeepsX314bearzbp1JTqJlfS/WP16815fAxH0/nlzWGmvfD11RbsXfl2Nt9jefH/ayP81hFXdNalpAyr21n/jxmbW/MPGeevwxB1XjV2tfz53rjvajXf/u1pfuW5h/3uawTAPp6wfDVEgJECF9jQ66frAyOjRnD22hqxMscJ2zDUrw2h6Bc1zZwjMoxdsPXyb3ZOhZI6uOyxvn9cH1rbUdrao+5GPd+8zkorgmhtJbPK8NX7dZrA4D7cYPwNTXaoTluvg6qwtP2vFW7ibZriSFlK11Xjt8KS8X5a6Bqj13WsRu+WkGxJZ1X1Las71j42llzmn+as7W2nfVmx/dxs4eFHJTC/YxBq1pnrOHWawOA+3H9//kKYaFuvKGRVoEkv7f7pKXh3PCVglGqaQ1Bu2Fper8+pz32S4SvNcys89fri3OXxztrLuc8O6Ds7+MorXPvcxCVQSuGsCqkzbXcem0AcD+uCF/h66FW2EgNsWik1TlTE9405yN+Zo5Fq4mHOZvXluvKY8SAWAau3fB1NAyEvZvUASfWXx63r6/uVWv+C2qa5bAY9v6U1v1abPf5dmsDgPtxcfhKQaFsrKnRls0vN9TxCccSIGKDTNfU4ed4k8+NeQ1s03EYI9sGp1xzcX2qZ3xtna+ef15DrHk93g1fm1rL97fv5XmH15a9jiGkDCjz+UVd01qW8+Ne771W2O59WcO0F5v1TDVt7n+5N8f2Yjy+/doA4F78XPgam27UCGTx3Ien2HSn4+G9pZFOAWy1F7xm6xh5nPpXTVSmpr2MPdRRBYy5YVe/aqKcfwoF1a+aqBv8fvga1bXW187BbjLuZwgwy36mva4DShL2bg1qgwsDSryH1Zix5kFZz+azUn1Gjl3bZ20AcA9Ohq9f2smG3QgFAABXEL6ELwCgI+FL+AIAOvp/hy8AgM6ELwCAjoQvAICOhC8AgI6ELwCAjoQvAICOhC8AgI6ELwCAjoQvAICOhC8AgI6W8PXHlz+BHeVfGgC43I/DP0cKq8jeqT33AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'Valider date cession'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession?dossierOffreTag=TNR_20220325" DesignTimeRectangle="1698, 357, 229, 75" ElementType="Button" FriendlyName="'Valider date cession'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='   Valider date cession ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4751' tag='BUTTON' type='button' aaname='   Valider date cession ' check:text='Valider date cession' /&gt;" Guid="c7444a56-c032-4a5c-9c24-bd00cdc42004" ImageBase64="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" InformativeScreenshot="75d87d99252de57bca748d7289cd2054.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1204, 357, 131, 75" ElementType="Button" FriendlyName="'Annuler'" FullSelectorArgument="&lt;webctrl id='ember4750' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4750' tag='BUTTON' type='button' aaname='   Annuler ' check:text='Annuler' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAABPCAYAAADBXNbTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAUmSURBVHhe7drNbxtFGMdxjuWQE2ef2guXKEg+EAnVh/YQMJEjouJDfHBQhHqwFRkZgUXVgy1CFGGo7CqOMQSD4jStHCLXTootEkwiBbe0RYU/gwPiL3g645f1znqe1C9ruy2/SB+p3sx6t7vf7M46eaVardKNb76nf/79D0BhxFF99DeAwogDX/iyfuHKAYrd4kEzDcQBFul0upkG4gALxAEsxAEsJQ75AnFAixJHobSPOMCAOICFOICFOICFOIClxLGe/g5xgEGJ49ULbyIOMChxvHbhLcQBBiWOwLu4ckCbEsf2zY8QBxiUOAqlXcQBBksceJSFNsQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLMQBLFvj+PXhX3TrXpXWd4p07/ShdoxOv+v1Z59Cl9w0MTVPoT3d98dnL3FV7FeUNjTfGwdb45An2OULif+gmxY+/oIK1d+148wOHzyhr37Ypdff9tfXi3z9Lf1y/0/tWFvsrdDklJecM25yLO9QRTdmTP43cXQTiDWM4cfxmJLLHpqYTVI8LrcZpNUT3bjxeKnjOPrjCSW3C/SG50PjZHOB6ML44LMv6e5v9zvG2qa2QwtiO5OxfaqWU+QS/3bFDzvGGSfpKE+hRS+dl/vnnCfXcoa2agOMa77mluvHHVMyFiTndOMYnZ8JUiBVVq54rfXid1bIJcdNe8mffWB6j/7YPiHtJpCxhCGUUkGxrdZc45iiPrHtSyu0aRnXONjy1uOhy+EMxXNbFA0v1U+++VbU27g+4qgVKDQrrnTTSxRIbFHS9P7OcMHy/h5yyHGpPMUTGdqw4YpoexySLhB/ZK1+8uX3bvz408jDMGIQt5TbzWWNg9o5MW0sd9PlxLGyfCMsTlTHyex2XO9x3Ja3PmeE4pYTXclGyDHlp2tl83puumLD1cJsKHFI2kA+XaPP09vKstGEIehuIydZmhPLrBPTxsFeomjz4KvLr1L0qJ9xvcYhYvaKY+RdEVekvLhqmKSu07TY71aU1u3ZZWhxSLpAzEYWhrAZmxfbbP+0NZzS6qLcF3Viyh1s6/LexvUaR4ECmmNm5ogUTOu9YHFIXCCjDKP92QbPfEXhDrZ1eW/j+oxDzC3M6+hw+zGokcRxk4mjeDyaOCo5eY8WAUSy6uW5LklXnGKfTBNT7mBbl/c2LtQxd9iMnDU3OaRrs2K/THMkDrcfgxr6bUUXxmgDkZ9tyO3xn2k0bjke8uce11/3dtKfPa6UkZ/9WCa+tTz561czLo7mhFSs58+pE81K7jpNikfm1uMqtx+DGuqE1BoGNyEdaiDMpFPRnKxOLGapJF53e9K7HVc92WpcnWaC9Il41Eym1mhOPKK+45Pj+Djko2xgRh4n8agck1c98SgbCdG0eC+HL2N56npB4tCF0Zpj6OYgwwyk9dN39u9R1Ilptye923FSpZShhffm67c3x0U/LSTKVLkTFePOiEOqlWk13P4QzHHRR3OxPO2ZxnD7MSjb4zgrDPOYUQYC/bE1jm7CMI9FIM83W+Ow/uKNC6NFF8jQfysLXRtaHM8Ko8UaCOJ4ftgah/yjne2DKq3futvzH/vU19sp0s+nj7RjYPRsn5DCywNxAAtxAAtxAAtxAAtxAAtxAAtxAAtxAAtxAAtxAAtxAEuJQ75AHNCixFF8/xziAAPiABbiABbiABbiABbiABbiABbiABbiABbiABbiABbiABbiAJaMQzYhIQ5Q7BYP6j1I9TgAOp2jpwURxRxK0w4nAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ClickType="Single" DelayAfter="[Convert.ToInt32(in_Config(&quot;TH02_Small_Wait&quot;))]" DisplayName="Click 'Appliquer les'" sap:VirtualizedContainerService.HintSize="472,157.6" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4a611e54-9b84-4725-b86d-162037bdd27b" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession?dossierOffreTag=TNR_20220325" DesignTimeRectangle="1372, 964, 313, 75" ElementType="Button" FriendlyName="'Appliquer les'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aaname='   Appliquer les dates de cession ' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4746' tag='BUTTON' type='button' aaname='   Appliquer les dates de cession ' check:text='Appliquer les dates de cession' /&gt;" Guid="3de835c2-9d41-4672-b218-0637683e6ff4" ImageBase64="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" InformativeScreenshot="7ef64a3c2e5ad8121d47cf2c67c44a85.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="229, 964, 123, 75" ElementType="Button" FriendlyName="'Retour'" FullSelectorArgument="&lt;webctrl id='ember4744' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember4744' tag='BUTTON' type='button' aaname='   Retour ' check:text='Retour' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAABPCAYAAADCxxq+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAUhSURBVHhe7ZnPayJJFMcHFnZOu+e9eJpLTmEPXrwkh8khJAQlIXgYDw4YkCFhaHAQIeRgQGTBix40NIgHA0mYRWTNgoJhSSBIYHOZP+i7r9pu7Y6lxh1bJ3lP+IBWV1VX16d+vGrf/Hp0DYV8+H1EPuOPyGf8Gcj/599vAgP+/Otvy7dC5DPj7OxM5HNF5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DNG5DPGJ/n3qJomssXyjNRQvXnU1Cf4gT/ye22ko9v45fdZicFoPOjrFOaOz/L3sJUp4bhQnkIO+5s+yr8xsaEdbIowglED6fNbfdmpPKBe/IL0le7aj43P8uMwqFM7ujwebpE/CFN+f+WHUjWUzr96KBRziOyoe4exb97ry0/CrvtQ5Ds8otFuo964RiGTwMbn8pS9fDHyN4pjZnfvK+LvabDulHCpuz4JkT+OB1TzcZJKHRtKwqh1x6wCS5ZPVFJqpcqi4km/Ren0CMGQuraNd5tHOCy3h89wle0/2wBX+bs28qkJZYlGMektMybd+V24ymFd1ReKIl77/n5anHybkHYVWLb8Lo53qH3vc6g6ab0mDLUdhBI4LNZpi6gjm0rgHdUTTDX7EklwqXyCEKVF8mobaaNllz1UMUwwgbhVtob0QQwBd1liNvlhBFRbymqrMlG585b5P8xR/j0q+S+IfDxykcS6Wk7poVejSYSC9iAYWQWWKL/XRYm2JiVmvdAdpF8WaNAGMyg86eROLUN54zhu22maZb96ukfPkkTWyWNTtybCsOxs8rexP4fZ7maO8h2BtmAPYUTKXbRumjj+FBukD1eBxcj3tslFkE4l+WZ/1lrcIqsC1mgOhScBojPTBwNpRP41DDXgP194lniLuxoilDdkD7LZ5NNguvHm+17mKP8RLTvIG6WNyztnqX/AZS2HLXsvtFYB8wLHH/2X7472C8UTbFAbVmI5VEY6lZZt1bYJBDJNT91D+f2yjmAvdr209Kvfr1C+hpZb/je0WjXEd52O3EPktAwjpr4veNlvm9hSW9EmdXTPlf5E0kREvmL6st/p3VJcYGDVTv9t9wR5JZvSl7XndyhiD9K1QMx0HfPsAPA5R78R+dOXfacdfanGSFxRzai+eFHyxwR8a33R659OsK86lL5bs52i48Zgti0x4KNtqJKK0r3D2CoPr1sBH7Uzfu5tT+f8BKsUIwyOWiPypwV8UaRb/d8t07DuYTRc+Zx3Di9Lvo7Ro95gtnvyLVM+4XR4MIm808HOcY0GxcapihXoqJcxrBOLZ5W4q2Of6l49KFFwONtRzyprbTtHSNMRrlT+w3rbuBV7ccu+Drf8p7PdzZLlE9aMpjyBg/ow6u95X9QE1mIUn9AzuMr1nzGJFesY6xo8mpc8updcnZaJD7t71sAIrMXxodi2tqJXIj+BlahutrvxWb6gxR/5rj92Ds3rMbPdjchfBj7Lj5H8pv745+FikF/kLw6f5c+KyF8kPsnvokCRsffY9wwOKDZoTfrrV5gnPgd8wo+MyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMyGeMR/6bn97CH34egy7vc9HV406bB5Pu9crQJs4Fd+e50eV9Lrp63GnzYNK9XhNv8R+FRJsV7xQAUQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <Sequence DisplayName="Success Log" sap:VirtualizedContainerService.HintSize="472,391.2" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_TransferLog]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:String">Success</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                            <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="430.4,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_10">
+                              <ui:AddLogFields.Fields>
+                                <InArgument x:TypeArguments="x:String" x:Key="Event">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsocelF_WorkFlowName" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="State">
+                                  <Literal x:TypeArguments="x:String">Success</Literal>
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="LogType">
+                                  <Literal x:TypeArguments="x:String">Technical</Literal>
+                                </InArgument>
+                              </ui:AddLogFields.Fields>
+                            </ui:AddLogFields>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[IsocelF_WorkFlowName+&quot; : Success - Search on Enregister Items.&quot;]" />
+                          </Sequence>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="513.6,485.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Failure Log" sap:VirtualizedContainerService.HintSize="472,391.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="430.4,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_11">
+                              <ui:AddLogFields.Fields>
+                                <InArgument x:TypeArguments="x:String" x:Key="Event">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsocelF_WorkFlowName" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="State">
+                                  <Literal x:TypeArguments="x:String">Failure</Literal>
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="LogType">
+                                  <Literal x:TypeArguments="x:String">Technical</Literal>
+                                </InArgument>
+                              </ui:AddLogFields.Fields>
+                            </ui:AddLogFields>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Error" Message="[IsocelF_WorkFlowName+&quot; : Failure - on application&quot;]" />
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_TransferLog]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:String">Failure</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                          </Sequence>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="http://alice.qop.isocel.info/referentiel/refcom-frontend/valorisations-date-cession" DesignTimeRectangle="242, 197, 364, 68" FriendlyName="'Application des'" FullSelectorArgument="&lt;webctrl tag='H2' aaname='Application des valorisations à la cession' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' aaname='Application des valorisations à la cession' check:text='Application des valorisations à la cession' /&gt;" Guid="f2f2a173-3855-48ac-b9a8-6ea50125a912" ImageBase64="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" InformativeScreenshot="a5600c8de8b94290e200f791691064a2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Alice.COM' /&gt;" SearchSteps="FuzzySelector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="966, 301, 29, 20" FriendlyName="'I'" FullSelectorArgument="&lt;webctrl parentid='ember4469' tag='I' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ember4469' tag='I' type='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACEAAAAYCAYAAAB0kZQKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFpSURBVEhL7ZY/a8JAGIf7BfoRujuVDl1czNAORShCQByaoUshFDscFEqgdLhAccmiQ4VAyOCSLCLEIYIlRJAg6OIH+vUqTa3xNH9LKRh4lvsdx3PvvXfkCOzz5ss/5SAR8s8kAhctlYIoBfHmYvS1dqpKODrB6b0JazKDkxXXxM0FgTZZr5vyOKbQ7iQ07QUnS8IChiKhrk83xtP3xLuO6jWFEXCyGEY2RVnS0Y+MZ2pMqy3jXB1ys90MQa5kUHc7yyThzX1QqQHS52V8DLWBy7bPzTJKMJwOBLEDi5dFiZmbXYLxuTtBG3OzNWM8i/urlkvCCwZo7jjnkFX/KIPvN4FHPgnGro5fkfAm5Zbw5qwaZxRdXsYEjx8H2+MRDhIhB4mQX5KYwTJfUa3UcMKu5+b8bQqW8NHVFAjlGkrSC6jt730fQgqSeEBTlVGq3KLe6qH3418hCYVIEJHgyRzD4ebxFCCRlyU+APrNKEnmPKWHAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                  </Sequence>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="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" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:ArgumentException" sap:VirtualizedContainerService.HintSize="1241.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:ArgumentException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:ArgumentException" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Failure Log" sap:VirtualizedContainerService.HintSize="472,389.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,101.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[out_TransferLog]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">Failure</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="430.4,22.4" sap2010:WorkflowViewState.IdRef="AddLogFields_3">
+                <ui:AddLogFields.Fields>
+                  <InArgument x:TypeArguments="x:String" x:Key="Event">[IsocelF_WorkFlowName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="State">Failure</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="LogType">Technical</InArgument>
+                </ui:AddLogFields.Fields>
+              </ui:AddLogFields>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="430.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[IsocelF_WorkFlowName+&quot; : Failure | Exception : &quot; + exception.Message+&quot; at Source : &quot;+exception.Source]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
